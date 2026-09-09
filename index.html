@@ -6,6 +6,10 @@
 <title>Brandon Jeppson · Product Manager · AI-Native Builder</title>
 <meta name="description" content="Brandon Jeppson: BYU Marriott MBA '27 moving from GTM into product management. Writes PRDs, instruments funnels, and ships his own tools end to end. $1.5M+ pipeline generated, 150+ discovery calls, 651K LinkedIn impressions.">
 <link rel="canonical" href="https://bjepp77.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bjepp77.github.io/">
 <meta property="og:title" content="Brandon Jeppson · Product Manager · AI-Native Builder">
@@ -29,22 +33,26 @@
 </script>
 <style>
 :root{
-  --canvas:#0C0E13;
-  --sunken:#080A0E;
-  --panel:#12151C;
-  --hairline:rgba(255,255,255,0.07);
-  --border:rgba(255,255,255,0.11);
-  --text:#E9E7E2;
-  --muted:#9A978F;
-  --faint:#6B6963;
-  --accent:#E8B33D;
-  --accent-hover:#FFC85C;
-  --accent-text:#F6D389;
-  --on-accent:#171105;
-  --live:#6FBF8A;
+  /* BYU brand palette - brand.byu.edu/colors + /web-theme */
+  --canvas:#002E5D;          /* BYU Navy (primary, dominant) */
+  --sunken:#002042;          /* navy, darkened */
+  --panel:#0A3E76;           /* navy, lightened */
+  --hairline:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.14);
+  --text:#FFFFFF;            /* BYU White */
+  --muted:#C7C9C7;           /* Light Gray (marketing palette) */
+  --faint:#7C878E;           /* Slate Gray (marketing palette) */
+  --accent:#BDD6E6;          /* Light Blue accent */
+  --accent-hover:#FFFFFF;
+  --accent-text:#BDD6E6;
+  --on-accent:#FFFFFF;
+  --royal:#0047BA;           /* BYU Royal (secondary) */
+  --royal-hover:#0072CE;     /* Blue (marketing palette) */
+  --live:#10A170;            /* web-theme SUCCESS */
+  --repo:#1FB3D1;            /* web-theme INFO */
   --radius:12px;
-  --font-ui:system-ui,-apple-system,'Segoe UI',sans-serif;
-  --font-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --font-ui:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -73,8 +81,8 @@ nav .links a:hover{color:var(--text)}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
 .btn{display:inline-block;padding:11px 20px;border-radius:8px;font-size:14px;font-weight:600;border:1px solid var(--border);color:var(--text);background:var(--panel)}
 .btn:hover{border-color:var(--accent);color:var(--accent-text)}
-.btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.btn.primary:hover{background:var(--accent-hover);color:var(--on-accent)}
+.btn.primary{background:var(--royal);color:var(--on-accent);border-color:var(--royal)}
+.btn.primary:hover{background:var(--royal-hover);color:var(--on-accent);border-color:var(--royal-hover)}
 
 /* stat strip */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:var(--radius);overflow:hidden;margin:56px 0 0}
@@ -91,10 +99,10 @@ h2{font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;margin-bottom:10px}
 /* build cards */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
 .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;transition:border-color .2s}
-.card:hover{border-color:rgba(232,179,61,.45)}
+.card:hover{border-color:rgba(189,214,230,.5)}
 .card .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:7px}
 .tag.live{color:var(--live)}
-.tag.repo{color:#7CB4CF}
+.tag.repo{color:var(--repo)}
 .dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block}
 .card h3{font-size:18px;margin-bottom:8px}
 .card p{font-size:14px;color:var(--muted);flex:1}
