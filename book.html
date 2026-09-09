@@ -9,11 +9,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <style>
 :root{
   --canvas:#002E5D;
   --sunken:#002042;
   --panel:#0A3E76;
+  --panel-lift:#0D4884;
   --hairline:rgba(255,255,255,0.08);
   --border:rgba(255,255,255,0.14);
   --text:#FFFFFF;
@@ -26,72 +28,121 @@
   --ok:#10A170;
   --font-ui:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
   --font-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --ease-spring:cubic-bezier(.22,1.2,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--canvas);color:var(--text);font-family:var(--font-ui);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+html{scroll-behavior:auto}
+body{background:var(--canvas);color:var(--text);font-family:var(--font-ui);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100dvh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M48 0H0v48' fill='none' stroke='rgba(255,255,255,0.035)'/%3E%3C/svg%3E");}
 a{color:var(--accent)}
-.wrap{max-width:720px;margin:0 auto;padding:48px 24px 80px}
-nav{padding:16px 0;margin-bottom:36px;border-bottom:1px solid var(--hairline);display:flex;justify-content:space-between;align-items:center}
+.wrap{max-width:720px;margin:0 auto;padding:48px 24px 80px;position:relative;z-index:1}
+nav{padding:16px 0;margin-bottom:40px;border-bottom:1px solid var(--hairline);display:flex;justify-content:space-between;align-items:center}
 nav .brand{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em}
-nav a{color:var(--muted);font-size:14px;text-decoration:none}
+nav a{color:var(--muted);font-size:14px;text-decoration:none;transition:color 200ms var(--ease-out)}
 nav a:hover{color:var(--text)}
+
+/* staggered entry - motion-primitives style cascade */
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.rise{opacity:0;animation:rise 480ms var(--ease-out) forwards}
+.d1{animation-delay:0ms}.d2{animation-delay:80ms}.d3{animation-delay:160ms}.d4{animation-delay:240ms}.d5{animation-delay:320ms}.d6{animation-delay:400ms}
+
 h1{font-size:clamp(28px,4.5vw,40px);letter-spacing:-0.02em;line-height:1.12;margin-bottom:12px}
 .sub{color:var(--muted);font-size:15.5px;margin-bottom:8px}
-.tz-note{font-family:var(--font-mono);font-size:12px;color:var(--faint);letter-spacing:.06em;margin-bottom:32px}
-h2{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:28px 0 14px}
-.day-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
-.day{flex:0 0 auto;border:1px solid var(--border);background:var(--panel);border-radius:10px;padding:10px 14px;text-align:center;cursor:pointer;min-width:76px}
-.day small{display:block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tz-note{font-family:var(--font-mono);font-size:12px;color:var(--faint);letter-spacing:.06em;margin-bottom:36px}
+
+.step{display:flex;align-items:baseline;gap:10px;margin:32px 0 14px}
+.step .num{font-family:var(--font-mono);font-size:12px;color:var(--royal-hover);font-weight:600;letter-spacing:.1em;flex:0 0 auto}
+.step h2{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.step .line{flex:1;height:1px;background:var(--hairline);transform:scaleX(0);transform-origin:left;animation:draw 700ms var(--ease-out) 300ms forwards}
+@keyframes draw{to{transform:scaleX(1)}}
+
+/* day cards - shimmer skeletons while loading */
+.day-row{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:thin}
+@keyframes shimmer{from{background-position:-200px 0}to{background-position:200px 0}}
+.skel{flex:0 0 auto;width:76px;height:62px;border-radius:4px;background:linear-gradient(90deg,var(--panel) 25%,var(--panel-lift) 50%,var(--panel) 75%);background-size:400px 100%;animation:shimmer 1.4s linear infinite}
+@keyframes pop{from{opacity:0;transform:scale(.92) translateY(6px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.day{flex:0 0 auto;border:1px solid var(--border);background:var(--panel);border-radius:4px;padding:10px 14px;text-align:center;cursor:pointer;min-width:76px;opacity:0;animation:pop 380ms var(--ease-spring) forwards;transition:background 200ms var(--ease-out),border-color 200ms var(--ease-out),transform 120ms var(--ease-out),box-shadow 200ms var(--ease-out)}
+.day small{display:block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color 200ms}
 .day b{font-size:16px;font-weight:600}
-.day.empty{opacity:.35;cursor:default}
-.day.selected{border-color:var(--accent);background:var(--royal)}
+.day:hover:not(.empty):not(.selected){border-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.day:active:not(.empty){transform:translateY(1px)}
+.day.empty{opacity:.32;cursor:default}
+.day.selected{background:var(--royal);border-color:var(--accent);box-shadow:0 4px 18px rgba(0,71,186,.45)}
 .day.selected small{color:var(--accent)}
+.day .dot{display:block;width:4px;height:4px;border-radius:50%;background:var(--ok);margin:4px auto 0}
+.day.empty .dot{visibility:hidden}
+
+/* slots - staggered cascade on each render */
 .slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px}
-.slot{border:1px solid var(--border);background:var(--panel);border-radius:8px;padding:10px 6px;text-align:center;font-family:var(--font-mono);font-size:13.5px;cursor:pointer}
-.slot:hover{border-color:var(--accent)}
-.slot.selected{background:var(--royal);border-color:var(--accent)}
+.slot{border:1px solid var(--border);background:var(--panel);border-radius:4px;padding:10px 6px;text-align:center;font-family:var(--font-mono);font-size:13.5px;cursor:pointer;opacity:0;animation:pop 340ms var(--ease-spring) forwards;transition:background 160ms var(--ease-out),border-color 160ms var(--ease-out),transform 110ms var(--ease-out),box-shadow 160ms var(--ease-out)}
+.slot:hover:not(.selected){border-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.slot:active{transform:translateY(1px)}
+.slot.selected{background:var(--royal);border-color:var(--accent);box-shadow:0 4px 18px rgba(0,71,186,.45)}
 .none{color:var(--muted);font-size:14px;padding:18px 0}
-.panel{background:var(--sunken);border:1px solid var(--hairline);border-radius:12px;padding:24px;margin-top:8px}
+
+/* details panel slides in */
+@keyframes panelIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.panel{background:var(--sunken);border:1px solid var(--hairline);border-radius:4px;padding:24px;margin-top:8px}
+.panel.enter{animation:panelIn 480ms var(--ease-out)}
 .summary{font-size:15px;margin-bottom:18px}
 .summary b{color:var(--accent)}
 label{display:block;font-size:13px;color:var(--muted);margin:14px 0 6px}
-input,textarea{width:100%;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-family:var(--font-ui);font-size:15px}
-input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+input,textarea{width:100%;background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:11px 14px;color:var(--text);font-family:var(--font-ui);font-size:15px;transition:border-color 200ms var(--ease-out),box-shadow 200ms var(--ease-out)}
+input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px var(--canvas),0 0 0 4px var(--royal-hover)}
 textarea{resize:vertical;min-height:76px}
 .hp{position:absolute;left:-9999px;top:-9999px;height:1px;width:1px;overflow:hidden}
-button.submit{width:100%;margin-top:20px;background:var(--royal);color:#fff;border:1px solid var(--royal);border-radius:8px;padding:13px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-ui)}
-button.submit:hover{background:var(--royal-hover)}
-button.submit:disabled{opacity:.5;cursor:default}
-.form-error{color:var(--error);font-size:14px;margin-top:12px;display:none}
+
+/* tactile submit */
+button.submit{width:100%;margin-top:20px;background:var(--royal);color:#fff;border:1px solid var(--royal);border-radius:4px;padding:13px;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-ui);transition:background 200ms var(--ease-out),transform 110ms var(--ease-out),box-shadow 200ms var(--ease-out)}
+button.submit:hover:not(:disabled){background:var(--royal-hover);box-shadow:0 6px 20px rgba(0,71,186,.4);transform:translateY(-1px)}
+button.submit:active:not(:disabled){transform:translateY(1px)}
+button.submit:disabled{opacity:.55;cursor:default}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+button.submit.busy{animation:pulse 1.2s ease-in-out infinite}
+.form-error{color:var(--error);font-size:14px;margin-top:12px;display:none;animation:rise 300ms var(--ease-out)}
+
+/* confirm - animated check draw */
 .confirm{text-align:center;padding:36px 20px}
-.confirm .check{font-size:44px;color:var(--ok)}
+.confirm svg{width:72px;height:72px;margin-bottom:6px}
+.confirm svg circle{stroke:var(--ok);stroke-width:2;fill:none;stroke-dasharray:166;stroke-dashoffset:166;animation:strokeDraw 700ms var(--ease-out) forwards}
+.confirm svg path{stroke:var(--ok);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:48;stroke-dashoffset:48;animation:strokeDraw 450ms var(--ease-out) 550ms forwards}
+@keyframes strokeDraw{to{stroke-dashoffset:0}}
 .confirm h2{font-family:var(--font-ui);font-size:24px;letter-spacing:-.01em;text-transform:none;color:var(--text);margin:10px 0 8px}
 .confirm p{color:var(--muted);font-size:15px}
-.confirm .meet{display:inline-block;margin-top:16px;font-family:var(--font-mono);font-size:13.5px}
+.confirm .meet{display:inline-block;margin-top:16px;font-family:var(--font-mono);font-size:13.5px;transition:color 200ms}
+.confirm .meet:hover{color:var(--text)}
 .loading{color:var(--muted);font-size:14px;padding:18px 0}
 footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--hairline);color:var(--faint);font-size:12.5px;font-family:var(--font-mono)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <nav>
+  <nav class="rise d1">
     <span class="brand">BRANDON JEPPSON</span>
     <a href="/">← back to the site</a>
   </nav>
 
   <div id="flow">
-    <h1>Book 30 minutes</h1>
-    <p class="sub">Live availability off my actual calendar. Pick a time, drop your details, and the invite with a Meet link lands in both our inboxes.</p>
-    <p class="tz-note" id="tz-note">TIMES SHOWN IN YOUR TIMEZONE · I'M IN AMERICA/DENVER</p>
+    <h1 class="rise d2">Book 30 minutes</h1>
+    <p class="sub rise d3">Live availability off my actual calendar. Pick a time, drop your details, and the invite with a Meet link lands in both our inboxes.</p>
+    <p class="tz-note rise d3" id="tz-note">TIMES SHOWN IN YOUR TIMEZONE · I'M IN AMERICA/DENVER</p>
 
-    <h2>1 · Pick a day</h2>
-    <div class="day-row" id="day-row"><div class="loading">Loading availability…</div></div>
+    <div class="step rise d4"><span class="num">01</span><h2>Pick a day</h2><span class="line"></span></div>
+    <div class="day-row rise d4" id="day-row">
+      <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
+    </div>
 
-    <h2>2 · Pick a time</h2>
-    <div class="slot-grid" id="slot-grid"><div class="none">Pick a day first.</div></div>
+    <div class="step rise d5"><span class="num">02</span><h2>Pick a time</h2><span class="line"></span></div>
+    <div class="slot-grid rise d5" id="slot-grid"><div class="none">Pick a day first.</div></div>
 
     <div id="details" class="panel" style="display:none">
-      <h2 style="margin-top:0">3 · Your details</h2>
+      <div class="step" style="margin-top:0"><span class="num">03</span><h2>Your details</h2><span class="line"></span></div>
       <p class="summary" id="summary-line"></p>
       <form id="book-form">
         <label for="f-name">Name</label>
@@ -110,17 +161,23 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--hairline);col
   </div>
 
   <div id="confirm" class="panel confirm" style="display:none">
-    <div class="check">✓</div>
+    <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="26.5"/><path d="M17 29l8 8 15-17"/></svg>
     <h2>You're on the calendar</h2>
     <p id="confirm-when"></p>
     <p>A Google Calendar invite is on its way to your inbox - it has the Meet link in it.</p>
     <p><a class="meet" id="confirm-meet" href="#" target="_blank" rel="noopener" style="display:none"></a></p>
   </div>
 
-  <footer>SELF-BUILT SCHEDULING · READS MY REAL CALENDAR · NO THIRD-PARTY BOOKING APP</footer>
+  <footer class="rise d6">SELF-BUILT SCHEDULING · READS MY REAL CALENDAR · NO THIRD-PARTY BOOKING APP</footer>
 </div>
 
 <script>
+if(window.Lenis){
+  const lenis = new Lenis({lerp:0.12});
+  function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+}
+
 const API = location.hostname.endsWith('vercel.app') || location.hostname === 'localhost'
   ? ''
   : 'https://bjepp77.vercel.app';
@@ -159,18 +216,19 @@ function renderDays(){
   const row = document.getElementById('day-row');
   row.innerHTML = '';
   let firstOpen = null;
-  for(const d of state.days){
+  state.days.forEach((d, i) => {
     const el = document.createElement('div');
     const {dow,label} = fmtDayLabel(d.date);
     el.className = 'day' + (d.slots.length ? '' : ' empty');
-    el.innerHTML = '<small>' + dow + '</small><b>' + label + '</b>';
+    el.style.animationDelay = (i * 60) + 'ms';
+    el.innerHTML = '<small>' + dow + '</small><b>' + label + '</b><span class="dot"></span>';
     if(d.slots.length){
       el.onclick = () => { state.date = d.date; state.slot = null; renderDays(); renderSlots(); };
       if(!firstOpen) firstOpen = d.date;
       if(state.date === d.date) el.classList.add('selected');
     }
     row.appendChild(el);
-  }
+  });
   if(!state.date && firstOpen){ state.date = firstOpen; renderDays(); renderSlots(); }
 }
 
@@ -179,22 +237,25 @@ function renderSlots(){
   grid.innerHTML = '';
   const day = state.days.find(d => d.date === state.date);
   if(!day || !day.slots.length){ grid.innerHTML = '<div class="none">No open slots this day.</div>'; renderDetails(); return; }
-  for(const iso of day.slots){
+  day.slots.forEach((iso, i) => {
     const el = document.createElement('div');
     el.className = 'slot' + (state.slot === iso ? ' selected' : '');
+    el.style.animationDelay = (i * 45) + 'ms';
     el.textContent = fmtSlot(iso);
     el.onclick = () => { state.slot = iso; renderSlots(); renderDetails(); };
     grid.appendChild(el);
-  }
+  });
   renderDetails();
 }
 
 function renderDetails(){
   const panel = document.getElementById('details');
   if(!state.slot){ panel.style.display = 'none'; return; }
+  const firstShow = panel.style.display === 'none';
   panel.style.display = 'block';
+  if(firstShow){ panel.classList.remove('enter'); void panel.offsetWidth; panel.classList.add('enter'); }
   document.getElementById('summary-line').innerHTML = 'Booking: <b>' + fmtLong(state.slot) + '</b> (' + visitorTz + ') · 30 min · Google Meet';
-  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+  if(firstShow) panel.scrollIntoView({behavior:'smooth', block:'nearest'});
 }
 
 document.getElementById('book-form').addEventListener('submit', async (ev) => {
@@ -202,7 +263,7 @@ document.getElementById('book-form').addEventListener('submit', async (ev) => {
   const btn = document.getElementById('submit-btn');
   const err = document.getElementById('form-error');
   err.style.display = 'none';
-  btn.disabled = true; btn.textContent = 'Booking…';
+  btn.disabled = true; btn.classList.add('busy'); btn.textContent = 'Booking…';
   try{
     const res = await fetch(API + '/api/book', {
       method: 'POST',
@@ -220,6 +281,7 @@ document.getElementById('book-form').addEventListener('submit', async (ev) => {
     document.getElementById('flow').style.display = 'none';
     const c = document.getElementById('confirm');
     c.style.display = 'block';
+    c.classList.add('enter');
     document.getElementById('confirm-when').textContent = fmtLong(data.start) + ' (' + visitorTz + ') · 30 minutes';
     if(data.meet_link){
       const m = document.getElementById('confirm-meet');
@@ -231,7 +293,7 @@ document.getElementById('book-form').addEventListener('submit', async (ev) => {
   }catch(e){
     err.textContent = e.message;
     err.style.display = 'block';
-    btn.disabled = false; btn.textContent = 'Book it';
+    btn.disabled = false; btn.classList.remove('busy'); btn.textContent = 'Book it';
     loadAvailability(); // refresh slots in case it was taken
   }
 });
