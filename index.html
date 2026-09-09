@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandon Jeppson · Product Manager · AI-Native Builder</title>
+<meta name="description" content="Brandon Jeppson: BYU Marriott MBA '27 moving from GTM into product management. Writes PRDs, instruments funnels, and ships his own tools end to end. $1.5M+ pipeline generated, 150+ discovery calls, 651K LinkedIn impressions.">
+<link rel="canonical" href="https://bjepp77.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bjepp77.github.io/">
+<meta property="og:title" content="Brandon Jeppson · Product Manager · AI-Native Builder">
+<meta property="og:description" content="BYU Marriott MBA '27 moving from GTM into product. Writes PRDs, instruments funnels, and ships his own tools end to end.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Brandon Jeppson",
+  "url": "https://bjepp77.github.io/",
+  "jobTitle": "Product Manager",
+  "email": "mailto:brandonjeppson7@gmail.com",
+  "description": "MBA candidate moving from GTM into product management. Writes requirements, instruments funnels, and ships tools end to end.",
+  "alumniOf": {"@type": "CollegeOrUniversity", "name": "BYU Marriott School of Business"},
+  "sameAs": [
+    "https://www.linkedin.com/in/bjepp",
+    "https://github.com/Bjepp77"
+  ]
+}
+</script>
+<style>
+:root{
+  --canvas:#0C0E13;
+  --sunken:#080A0E;
+  --panel:#12151C;
+  --hairline:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.11);
+  --text:#E9E7E2;
+  --muted:#9A978F;
+  --faint:#6B6963;
+  --accent:#E8B33D;
+  --accent-hover:#FFC85C;
+  --accent-text:#F6D389;
+  --on-accent:#171105;
+  --live:#6FBF8A;
+  --radius:12px;
+  --font-ui:system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--canvas);color:var(--text);font-family:var(--font-ui);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-text);text-decoration:none}
+a:hover{color:var(--accent-hover)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.mono{font-family:var(--font-mono)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(12,14,19,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--hairline)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px}
+nav .brand{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;color:var(--text)}
+nav .links{display:flex;gap:22px;font-size:14px}
+nav .links a{color:var(--muted)}
+nav .links a:hover{color:var(--text)}
+@media(max-width:640px){nav .links{gap:14px;font-size:12px}}
+
+/* hero */
+.hero{padding:96px 0 64px;border-bottom:1px solid var(--hairline)}
+.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.08;letter-spacing:-0.02em;font-weight:700;margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--accent-text)}
+.hero p.sub{font-size:18px;color:var(--muted);max-width:660px;margin-bottom:12px}
+.hero p.avail{font-size:15px;color:var(--accent-text);margin-bottom:34px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-size:14px;font-weight:600;border:1px solid var(--border);color:var(--text);background:var(--panel)}
+.btn:hover{border-color:var(--accent);color:var(--accent-text)}
+.btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn.primary:hover{background:var(--accent-hover);color:var(--on-accent)}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:var(--radius);overflow:hidden;margin:56px 0 0}
+.stat{background:var(--sunken);padding:22px 18px}
+.stat .n{font-family:var(--font-mono);font-size:26px;font-weight:700;color:var(--accent-text);letter-spacing:-0.02em}
+.stat .l{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.45}
+.snapshot{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;color:var(--faint);text-transform:uppercase;margin-top:16px}
+
+/* sections */
+section{padding:72px 0;border-bottom:1px solid var(--hairline)}
+h2{font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;margin-bottom:10px}
+.section-sub{color:var(--muted);max-width:640px;margin-bottom:40px;font-size:15.5px}
+
+/* build cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;transition:border-color .2s}
+.card:hover{border-color:rgba(232,179,61,.45)}
+.card .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.tag.live{color:var(--live)}
+.tag.repo{color:#7CB4CF}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted);flex:1}
+.card .links2{margin-top:18px;display:flex;gap:16px;font-family:var(--font-mono);font-size:13px}
+
+/* now band */
+.now{background:var(--sunken);border:1px solid var(--hairline);border-radius:var(--radius);padding:28px}
+.now ul{list-style:none;display:grid;gap:10px;margin-top:6px}
+.now li{font-size:14.5px;color:var(--muted);padding-left:22px;position:relative}
+.now li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+.now li b{color:var(--text);font-weight:600}
+
+/* timeline */
+.tl{display:grid;gap:0}
+.job{padding:26px 0;border-top:1px solid var(--hairline);display:grid;grid-template-columns:220px 1fr;gap:24px}
+@media(max-width:700px){.job{grid-template-columns:1fr;gap:8px}}
+.job .when{font-family:var(--font-mono);font-size:12.5px;color:var(--faint);padding-top:4px}
+.job h3{font-size:17px;margin-bottom:2px}
+.job .role{font-size:13.5px;color:var(--accent-text);margin-bottom:10px}
+.job ul{list-style:none;display:grid;gap:7px}
+.job li{font-size:14px;color:var(--muted);padding-left:18px;position:relative}
+.job li::before{content:"·";position:absolute;left:4px;color:var(--accent)}
+
+/* leadership chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--border);border-radius:999px;padding:9px 18px;font-size:13.5px;color:var(--muted)}
+.chip b{color:var(--text);font-weight:600}
+
+/* contact */
+.contact{text-align:left}
+.contact .big{font-size:clamp(22px,3vw,30px);letter-spacing:-.01em;font-weight:650;max-width:640px;margin-bottom:26px}
+footer{padding:36px 0 60px;color:var(--faint);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* fade-in */
+.fade-in{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.fade-in{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">BRANDON JEPPSON</span>
+    <div class="links">
+      <a href="#builds">Work</a>
+      <a href="#pivot">Experience</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">BYU Marriott MBA '27 · Provo, UT · geo-agnostic</div>
+    <h1>GTM pedigree. Product brain.<br><em>Ships his own code.</em></h1>
+    <p class="sub">I'm Brandon Jeppson, an MBA candidate moving from sales into product management. I've carried the quota, written the PRD, and built the tool myself: requirements, funnels, and working software, end to end.</p>
+    <p class="avail">Open to full-time product, AI consulting, and product marketing roles starting April 2027.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#builds">See the work ↓</a>
+      <a class="btn" href="resume.pdf">Resume ↓</a>
+      <a class="btn" href="https://www.linkedin.com/in/bjepp">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/Bjepp77">GitHub ↗</a>
+      <a class="btn" href="mailto:brandonjeppson7@gmail.com">Email</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">$1.5M+</div><div class="l">qualified pipeline generated in enterprise BD at Awardco</div></div>
+      <div class="stat"><div class="n">$871K</div><div class="l">closed from business cases built out of 10-Ks and ESG reports</div></div>
+      <div class="stat"><div class="n">150+</div><div class="l">customer discovery calls as founding AE at a pre-PMF startup</div></div>
+      <div class="stat"><div class="n">90+</div><div class="l">accounts instrumented by segment, stage, and message at Redo</div></div>
+      <div class="stat"><div class="n">21</div><div class="l">account executives ran the SMB playbook he helped shape</div></div>
+      <div class="stat"><div class="n">651K</div><div class="l">LinkedIn impressions in the last 12 months, 357 posts and counting</div></div>
+    </div>
+    <div class="snapshot">Snapshot · Sep 2026 · everything below is a live link or a clone-able repo</div>
+  </div>
+</header>
+
+<section id="builds">
+  <div class="wrap">
+    <div class="eyebrow">Shipped &amp; clickable</div>
+    <h2>Things I've built. Click them, clone them.</h2>
+    <p class="section-sub">No slideware. Every entry is a URL you can open or a public repo you can read. This is the part of the resume that doesn't fit on the resume.</p>
+    <div class="cards">
+      <div class="card fade-in">
+        <div class="tag live"><span class="dot"></span>Live · GitHub Pages</div>
+        <h3>SwoleQuest</h3>
+        <p>A gamified workout ecosystem: four training trackers wrapped in an 8-bit RPG layer with a trainer creator, evolutions, loot drops, and a trophy case. Self-contained HTML and localStorage, no backend, shipped on GitHub Pages so sharing is a link.</p>
+        <div class="links2"><a href="https://bjepp77.github.io/swolequest/">open the hub ↗</a><a href="https://github.com/Bjepp77/swolequest">repo ↗</a></div>
+      </div>
+      <div class="card fade-in">
+        <div class="tag live"><span class="dot"></span>Live · production</div>
+        <h3>aifoundry.byu.edu</h3>
+        <p>The site for the BYU AI Foundry, a student-run AI product studio. Built end to end as Head of BYU Products: own code, Supabase backend, Vercel deployment, live users.</p>
+        <div class="links2"><a href="https://aifoundry.byu.edu">open the site ↗</a></div>
+      </div>
+      <div class="card fade-in">
+        <div class="tag repo"><span class="dot"></span>Open repo</div>
+        <h3>Walnut</h3>
+        <p>Local voice dictation and narration for macOS. Whisper on your own silicon: no cloud, no API keys, no subscription. Picks the right engine for Apple Silicon or Intel automatically.</p>
+        <div class="links2"><a href="https://github.com/Bjepp77/walnut">repo ↗</a></div>
+      </div>
+      <div class="card fade-in">
+        <div class="tag repo"><span class="dot"></span>Open repo</div>
+        <h3>Trade Scout</h3>
+        <p>A dynasty fantasy football trade evaluator that prices every trade against multiple value sources and returns a consensus verdict. Built because the league mates got tired of losing to me.</p>
+        <div class="links2"><a href="https://github.com/Bjepp77/trade-scout">repo ↗</a></div>
+      </div>
+      <div class="card fade-in">
+        <div class="tag repo"><span class="dot"></span>Open repo</div>
+        <h3>Thrift Scout</h3>
+        <p>An autonomous sourcing agent for the resale market: finds underpriced inventory, scores the flip, and surfaces the ones worth a drive.</p>
+        <div class="links2"><a href="https://github.com/Bjepp77/thrift-scout">repo ↗</a></div>
+      </div>
+      <div class="card fade-in">
+        <div class="tag repo"><span class="dot"></span>This site</div>
+        <h3>bjepp77.github.io</h3>
+        <p>One self-contained HTML file, no framework, no build step. The same zero-cost shipping pattern behind everything above.</p>
+        <div class="links2"><a href="https://github.com/Bjepp77/Bjepp77.github.io">repo ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="now">
+  <div class="wrap">
+    <div class="eyebrow">Now · updated Sep 9, 2026</div>
+    <h2>What's on the bench right now</h2>
+    <p class="section-sub">A living resume should actually live. This band is what I'm shipping, chasing, and learning this month, and it changes as fast as the work does.</p>
+    <div class="now">
+      <ul>
+        <li><b>SwoleQuest v2:</b> proprietary training programs, wearable gear layers killed on user feedback (mine), and a hype-video theater. Iterating nightly with real user feedback.</li>
+        <li><b>PM recruiting:</b> targeting a product offer by December 2026. Deepest channel: Walmart PM org, plus J&amp;J, Danaher, and AT&amp;T in play.</li>
+        <li><b>AI Foundry:</b> product lead on a pharmaceutical client engagement, translating their evaluation process into a working prototype.</li>
+        <li><b>Cougar Strategy Group:</b> embedding AI across the seven-stage client engagement model as Director of AI, as shared infrastructure rather than one person's workflow.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="pivot">
+  <div class="wrap">
+    <div class="eyebrow">The pivot</div>
+    <h2>Four years of GTM, aimed at product</h2>
+    <p class="section-sub">Every sales role I had, I ended up doing product work inside of it: translating customer signal into tickets, requirements, and roadmap. The MBA is me making it official.</p>
+    <div class="tl">
+      <div class="job fade-in">
+        <div class="when">May 2026 – present</div>
+        <div>
+          <h3>AI Foundry @ BYU</h3>
+          <div class="role">Founding Member · Head of Product</div>
+          <ul>
+            <li>Product lead on a pharmaceutical client engagement: auditing the client's evaluation process and translating their needs into a working prototype.</li>
+            <li>Appointed by faculty as Director of AI for Cougar Strategy Group, embedding AI across its seven-stage client engagement model.</li>
+            <li>Own the studio's BYU product line, scoping internal campus engagements into buildable product work.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job fade-in">
+        <div class="when">May – Aug 2026</div>
+        <div>
+          <h3>Redo</h3>
+          <div class="role">Partnerships &amp; Business Development · MBA internship</div>
+          <ul>
+            <li>Wrote the four-page PRD defining pipeline stages, warm-vs-cold triage, and data structure, then built the tracker to spec. It became the team's living record and the precedent for how partnerships runs.</li>
+            <li>Built my own research agent, caught it fabricating qualification evidence, and spec'd the code-enforced replacement.</li>
+            <li>Rebuilt the partner offer after leadership killed the original, swapping lead-sharing for a per-order margin cut, and built the unit economics my manager carried to market.</li>
+            <li>The work proved the concept enough that leadership grew the team and hired a Head of Partnerships.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job fade-in">
+        <div class="when">Nov 2022 – Jul 2025</div>
+        <div>
+          <h3>Awardco</h3>
+          <div class="role">SMB Account Executive → Enterprise Business Development</div>
+          <ul>
+            <li>Pilot team for Awardco's first SMB product, positioning an enterprise platform against an ICP the company had never sold; shaped the playbook 21 AEs ran.</li>
+            <li>Carried client pain on the static V1 back to PMs and engineering through tickets and review; V2 became the configurability customers kept asking for.</li>
+            <li>Built enterprise business cases from ESG reports, 10-Ks, and executive announcements: $1.5M+ qualified pipeline, $871K closed.</li>
+            <li>Scoped a custom HRIS integration for S. Truett Cathy Brand Restaurants, and carried engineering's "no" back to the client when a request was a fundamentally different product.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job fade-in">
+        <div class="when">Jan – Oct 2022</div>
+        <div>
+          <h3>Fiddle</h3>
+          <div class="role">Founding Account Executive · pre-PMF</div>
+          <ul>
+            <li>Ran 150+ customer discovery calls and built the tracker behind them, synthesizing which value propositions earned traction.</li>
+            <li>Reported customer signal directly to the founder-CTO, in the same room as the two engineers building against it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap">
+    <div class="eyebrow">Leadership</div>
+    <h2>Where else the reps come from</h2>
+    <p class="section-sub">The MBA isn't just classes. These are the rooms I'm running while I'm here.</p>
+    <div class="chips">
+      <div class="chip"><b>Head of BYU Products</b> · BYU AI Foundry</div>
+      <div class="chip"><b>Director of AI</b> · Cougar Strategy Group</div>
+      <div class="chip"><b>Chapter President</b> · BYU Adam Smith Society</div>
+      <div class="chip"><b>Leadership Team</b> · BYU Marriott Product Management</div>
+      <div class="chip"><b>Team Captain</b> · MBANBA intramural basketball</div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="eyebrow">Writing</div>
+    <h2>5,472 connections and a 6am posting habit</h2>
+    <p class="section-sub">I've posted 357 times since 2022, mostly from the gym between 6:00 and 8:30am. Last 12 months: 651K impressions, about 8,800 per post. Sponsored work to date: an AskElephant date-night post that did 14K impressions and 145 reactions. Voice is the moat; the numbers are the receipt.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://www.linkedin.com/in/bjepp">Read me on LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2>Reach out directly</h2>
+    <p class="big">Open to full-time product management, AI consulting, and product marketing roles after April 2027. Geo-agnostic: I'll go where the work is. No form.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:brandonjeppson7@gmail.com">brandonjeppson7@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/bjepp">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/Bjepp77">GitHub ↗</a>
+      <a class="btn" href="resume.pdf">Resume ↓</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Brandon Jeppson</span>
+    <span class="mono">One HTML file · no framework · shipped on GitHub Pages</span>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
