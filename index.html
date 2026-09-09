@@ -74,7 +74,7 @@ nav .links a:hover{color:var(--text)}
 
 /* hero */
 .hero{padding:96px 0 64px;border-bottom:1px solid var(--hairline)}
-.hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.08;letter-spacing:-0.02em;font-weight:700;margin-bottom:22px}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.04;letter-spacing:-0.035em;font-weight:700;margin-bottom:22px}
 .hero h1 em{font-style:normal;color:var(--accent-text)}
 .hero p.sub{font-size:18px;color:var(--muted);max-width:660px;margin-bottom:12px}
 .hero p.avail{font-size:15px;color:var(--accent-text);margin-bottom:34px}
@@ -93,7 +93,7 @@ nav .links a:hover{color:var(--text)}
 
 /* sections */
 section{padding:72px 0;border-bottom:1px solid var(--hairline)}
-h2{font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;margin-bottom:10px}
+h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-0.03em;font-weight:650;margin-bottom:10px}
 .section-sub{color:var(--muted);max-width:640px;margin-bottom:40px;font-size:15.5px}
 
 /* build cards */
@@ -136,6 +136,22 @@ h2{font-size:clamp(24px,3.2vw,34px);letter-spacing:-0.02em;margin-bottom:10px}
 .contact .big{font-size:clamp(22px,3vw,30px);letter-spacing:-.01em;font-weight:650;max-width:640px;margin-bottom:26px}
 footer{padding:36px 0 60px;color:var(--faint);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+
+/* film grain - aifoundry.byu.edu signature texture */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+
+/* inverse band - section rhythm borrowed from aifoundry.byu.edu */
+#now{background:#FFFFFF;color:#141414}
+#now .eyebrow{color:var(--royal)}
+#now h2{color:#002E5D}
+#now .section-sub{color:#666666}
+#now .now{background:#FFFFFF;border:1px solid #E3E6EA}
+#now .now li{color:#666666}
+#now .now li b{color:#141414}
+#now .now li::before{color:var(--royal)}
 
 /* fade-in */
 .fade-in{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
@@ -217,6 +233,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <h3>Thrift Scout</h3>
         <p>An autonomous sourcing agent for the resale market: finds underpriced inventory, scores the flip, and surfaces the ones worth a drive.</p>
         <div class="links2"><a href="https://github.com/Bjepp77/thrift-scout">repo ↗</a></div>
+      </div>
+      <div class="card fade-in">
+        <div class="tag live"><span class="dot"></span>Live · self-built</div>
+        <h3>/book - my own scheduling system</h3>
+        <p>A self-hosted booking flow I built from scratch: reads real free/busy off my Google Calendar, holds slots server-side so nothing double-books, writes the meeting back with a Meet link, and emails both sides through the calendar invite. Zero third-party booking app.</p>
+        <div class="links2"><a href="/book">book time with me ↗</a></div>
       </div>
       <div class="card fade-in">
         <div class="tag repo"><span class="dot"></span>This site</div>
@@ -335,7 +357,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <h2>Reach out directly</h2>
     <p class="big">Open to full-time product management, AI consulting, and product marketing roles after April 2027. Geo-agnostic: I'll go where the work is. No form.</p>
     <div class="cta-row">
-      <a class="btn primary" href="mailto:brandonjeppson7@gmail.com">brandonjeppson7@gmail.com</a>
+      <a class="btn primary" href="/book">Book a meeting →</a>
+      <a class="btn" href="mailto:brandonjeppson7@gmail.com">brandonjeppson7@gmail.com</a>
       <a class="btn" href="https://www.linkedin.com/in/bjepp">LinkedIn ↗</a>
       <a class="btn" href="https://github.com/Bjepp77">GitHub ↗</a>
       <a class="btn" href="resume.pdf">Resume ↓</a>
