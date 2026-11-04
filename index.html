@@ -237,11 +237,11 @@ footer{padding:28px 0 40px;border-top:1px solid var(--line);display:flex;justify
     <article class="entry" data-tags="ai">
       <div class="date">2026</div>
       <div>
-        <h3>Thrift Scout</h3>
+        <h3><a href="https://github.com/Bjepp77/thrift-scout-public">Thrift Scout</a></h3>
         <p class="what">An autonomous sourcing agent for resale inventory.</p>
         <p class="why"><span class="ph-text">Why it exists: one line from Brandon</span></p>
-        <p class="why"><span class="ph-text">Repo is private (404): owner decides link</span></p>
-        <div class="meta"><span class="chip">Python</span><span class="chip">Agent</span></div>
+        <div class="meta"><span class="chip">Python</span><span class="chip">Agent</span><span class="chip">Open source</span></div>
+        <div class="acts"><a href="https://github.com/Bjepp77/thrift-scout-public">Source ↗</a></div>
       </div>
       <div class="shot"><div class="placeholder">SCREENSHOT NEEDED<br>a sourcing run or deal alert</div></div>
     </article>
@@ -290,6 +290,7 @@ I turn customer signal into product decisions. Then I build the thing.</div>
 <tr><td class="d">2026-09</td><td class="n">book</td><td>Calendly-style scheduler built from scratch <span class="tag live">live</span></td></tr>
 <tr><td class="d">2026-08</td><td class="n">trade-scout</td><td>Fantasy trade evaluator with a consensus verdict <span class="tag">source</span></td></tr>
 <tr><td class="d">2026-07</td><td class="n">walnut</td><td>Private on-device voice dictation for macOS <span class="tag">source</span></td></tr>
+<tr><td class="d">2026-06</td><td class="n">thrift-scout</td><td>Autonomous sourcing agent for resale inventory <span class="tag">source</span></td></tr>
 <tr><td class="d">2026-05</td><td class="n">aifoundry</td><td>aifoundry.byu.edu, shipped end to end <span class="tag live">live</span></td></tr></table></div>
           <div id="log"></div>
           <label class="prompt js-only" for="in"><b>~ $</b><input id="in" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Type a command" enterkeyhint="go"></label>
@@ -329,6 +330,7 @@ const P={
  "book":{url:"/book",src:"https://github.com/Bjepp77/Bjepp77.github.io",what:"A Calendly-style scheduler built from scratch: free/busy, slot holds, Meet links, invites.",stack:"JavaScript, serverless",live:true},
  "trade-scout":{url:"https://github.com/Bjepp77/trade-scout",what:"A local dynasty fantasy football trade evaluator. Prices every trade against several value sources and returns a consensus verdict.",stack:"Python",live:false},
  "walnut":{url:"https://github.com/Bjepp77/walnut",what:"Private, local voice dictation and narration for macOS. Whisper on your own silicon: no cloud, no keys, no subscription.",stack:"Python",live:false},
+ "thrift-scout":{url:"https://github.com/Bjepp77/thrift-scout-public",what:"An autonomous sourcing agent for resale inventory.",stack:"Python",live:false},
  "aifoundry":{url:"https://aifoundry.byu.edu",what:"The AI Foundry studio site. Owned from wireframe to production, shipped end to end in TypeScript on Supabase and Vercel.",stack:"TypeScript, Supabase, Vercel",live:true}
 };
 const L=(href,t)=>`<a href="${href}" target="_blank" rel="noopener">${t||href.replace(/^https?:\/\//,'')}</a>`;
