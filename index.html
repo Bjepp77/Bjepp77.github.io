@@ -2,235 +2,509 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brandon Jeppson · Product Manager · AI-Native Builder</title>
+<meta name="description" content="Brandon Jeppson turns customer signal into product decisions, then builds the thing. A dated ledger of what he has shipped.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bjepp77.github.io/">
+<meta property="og:title" content="Brandon Jeppson · Product Manager · AI-Native Builder">
+<meta property="og:description" content="I turn customer signal into product decisions. Then I build the thing. Everything I have shipped, newest first.">
+<meta property="og:image" content="https://bjepp77.github.io/brandon.jpg">
+<meta property="og:image:alt" content="Brandon Jeppson headshot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bjepp77.github.io/brandon.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --paper:#f5f2ea; --ink:#002e5d; --ink-soft:rgba(0,46,93,.68); --line:rgba(0,46,93,.18);
-  --red:#d14124; --royal:#003da5; --max:1240px;
-}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "IBM Plex Sans",sans-serif;-webkit-font-smoothing:antialiased}
+:root{--bone:#efe7d5;--ink:#121110;--acid:#cfe31a;--mute:rgba(18,17,16,.64);--rule:rgba(18,17,16,.2);--bone-mute:rgba(239,231,213,.62);--bone-rule:rgba(239,231,213,.22);--gut:clamp(20px,4vw,56px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+code{font-family:"IBM Plex Mono",monospace;font-size:.92em}
+body{margin:0;background:var(--bone);color:var(--ink);font:400 17px/1.55 Fraunces,Georgia,serif;font-variation-settings:"opsz" 14;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
-.shell{max-width:var(--max);margin:0 auto;padding:0 24px}
-.kicker{display:block;font:500 11px/1 "IBM Plex Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
-/* header */
-header{position:sticky;top:0;z-index:50;background:rgba(245,242,234,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .shell{height:64px;display:flex;align-items:center;justify-content:space-between}
-.wordmark{font:600 25px/1 Fraunces,serif;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
-.wordmark b{color:var(--red);font-weight:400}
-nav.main{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:500}
-nav.main a{text-decoration:none}
-nav.main a:hover{text-decoration:underline;text-underline-offset:5px}
-nav.main .book{padding:9px 18px;border:1px solid var(--ink);border-radius:999px}
-nav.main .book:hover{background:var(--ink);color:var(--paper);text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.dark a:focus-visible{outline-color:var(--acid)}
+img{max-width:100%;display:block}
+.mono{font:500 12px/1.4 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase}
+.skip{position:absolute;left:-999px;top:0;background:var(--acid);color:var(--ink);padding:10px 14px;z-index:10}
+.skip:focus{left:var(--gut)}
+.rule{border:0;border-top:2px solid var(--ink);margin:0}
+/* masthead */
+.mast{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:18px var(--gut);border-bottom:2px solid var(--ink)}
+.mast .mark{font:700 22px/1 Fraunces,serif;font-variation-settings:"opsz" 144;text-decoration:none;letter-spacing:-.02em}
+.mast .vol{color:var(--mute);text-align:center}
+.mast nav{display:flex;gap:22px;justify-content:end}
+.mast nav a{text-decoration:none;font-size:15px;white-space:nowrap}
+.mast nav a:hover{text-decoration:underline;text-underline-offset:5px}
 /* hero */
-.hero{display:grid;grid-template-columns:1fr 250px;gap:48px;padding:88px 0 64px;border-bottom:1px solid var(--line)}
-.hero .kicker{margin-bottom:26px}
-h1{margin:0;font:600 74px/1.02 Fraunces,serif;letter-spacing:-.02em}
-h1 em{font-style:normal;color:var(--royal)}
-.hero-copy{max-width:560px;margin:26px 0 0;font-size:18px;color:var(--ink-soft)}
-.hero-actions{display:flex;gap:12px;margin-top:32px}
-.btn{display:inline-flex;align-items:center;min-height:52px;padding:14px 30px;border:1px solid var(--ink);border-radius:999px;text-decoration:none;font-size:16.5px;font-weight:600;transition:background .15s,color .15s}
-.btn.primary{background:var(--ink);color:var(--paper)}
-.btn:hover{background:var(--ink);color:var(--paper)}
-.btn.primary:hover{background:var(--royal);border-color:var(--royal)}
-.hero-side{border-left:1px solid var(--line);padding-left:32px;display:flex;flex-direction:column;gap:0}
-.hero-side img{width:100%;border-radius:2px;filter:saturate(.92)}
-.contact-mini{margin-top:22px;font-size:14px}
-.contact-mini .kicker{margin:14px 0 4px;font-size:10px}
-.contact-mini a{text-decoration-thickness:1px;text-underline-offset:3px}
-/* stat row */
-.stats{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--line)}
-.stats>div{padding:22px 18px 20px;border-left:1px solid var(--line)}
-.stats>div:first-child{border-left:0;padding-left:0}
-.stats b{display:block;font:600 22px/1.1 Fraunces,serif;letter-spacing:-.01em}
-.stats span{display:block;margin-top:6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-.stats-label{padding:14px 0 0;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-.skill-strip{border-bottom:1px solid var(--line);padding:16px 24px;text-align:center}
-.skill-track{font:500 11px/2.1 "IBM Plex Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}.skill-track a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}.skill-track a:hover{color:var(--royal)}
-.skill-strip:hover .skill-track{animation-play-state:paused}
-
-@media (prefers-reduced-motion:reduce){.skill-track{animation:none}}
-/* statements */
-.statements{display:grid;grid-template-columns:1fr 1fr;padding:36px 0;border-bottom:1px solid var(--line)}
-.statement{max-width:none}
-.statement:first-child{padding-right:32px}
-.statement+.statement{border-left:1px solid var(--line);padding-left:32px}
-.statement .kicker{margin-bottom:12px}
-.statement h2{margin:0;font:600 24px/1.25 Fraunces,serif;letter-spacing:-.01em}
-.statement p{max-width:640px;margin:12px 0 0;color:var(--ink-soft);font-size:14px}
-/* numbered sections */
-section.block{padding:56px 0;border-bottom:1px solid var(--line)}
-.sec-head{display:grid;grid-template-columns:60px 1fr;gap:24px;margin-bottom:28px}
-.sec-num{font:400 14px/1 Fraunces,serif;color:var(--ink-soft);padding-top:10px}
-.sec-head h2{margin:0;font:600 44px/1.1 Fraunces,serif;letter-spacing:-.015em}
-.sec-head p{max-width:600px;margin:12px 0 0;color:var(--ink-soft)}
-.sec-head .kicker{margin-bottom:10px}
-.band-head{background:var(--ink);color:var(--paper);padding:28px 32px;margin-bottom:28px}
-.band-head .sec-head{margin-bottom:0}
-.band-head .sec-head h2{color:var(--paper)}
-.band-head .kicker{color:rgba(245,242,234,.6)}
-.band-head .sec-num{color:rgba(245,242,234,.6)}
-/* experience accordion */
-.accordion{border-top:1px solid var(--line)}
-details{border-bottom:1px solid var(--line)}
-summary{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:20px 4px;cursor:pointer;list-style:none;font:600 22px/1.25 Fraunces,serif;letter-spacing:-.01em}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font:300 26px/1 Fraunces,serif;color:var(--ink-soft)}
-details[open] summary::after{content:"–"}
-.detail-body{padding:0 48px 24px 4px;color:var(--ink-soft);font-size:15px}
-.detail-body .role{margin:-4px 0 12px;color:var(--royal);font-size:13px;font-weight:500;letter-spacing:.04em}
-.detail-body ul{margin:0;padding-left:18px}
-.detail-body li+li{margin-top:8px}
-/* work columns */
-.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
-.col{padding:28px 28px 8px;border-left:1px solid var(--line)}
-.col:first-child{border-left:0;padding-left:0}
-.col h3{margin:0 0 4px;font:600 22px/1.25 Fraunces,serif;letter-spacing:-.01em}
-.col>p{margin:0 0 18px;color:var(--ink-soft);font-size:14px}
-.plist{margin:0;padding:0;list-style:none}
-.plist li{border-top:1px solid var(--line);padding:12px 0}
-.plist a{display:block;text-decoration:none;font-size:15px}
-.plist a:hover{text-decoration:underline;text-underline-offset:4px}
-.plist small{display:block;margin-top:3px;color:var(--ink-soft);font-size:13px;line-height:1.45}
-.leadership-list{margin:0;padding:0;list-style:none;font-size:14px;color:var(--ink-soft)}
-.leadership-list li{padding:9px 0;border-top:1px solid var(--line)}
-.leadership-list b{color:var(--ink)}
-
-.band{background:var(--ink);color:var(--paper);border-bottom:1px solid var(--line)}
-.band .shell{padding:72px 24px}
-.band .sec-head h2{color:var(--paper)}
-.band .kicker{color:rgba(245,242,234,.6)}
-.band p{color:rgba(245,242,234,.75)}
-.band .btn{border-color:var(--paper);color:var(--paper)}
-.band .btn:hover{background:var(--paper);color:var(--ink)}
-.band-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.band h3{margin:0 0 12px;font:600 24px/1.2 Fraunces,serif}
-.band .plist li{border-top-color:rgba(245,242,234,.25)}
-.band .plist small{color:rgba(245,242,234,.6)}
-.flag-kicker{float:right;font:500 11px/1 "IBM Plex Sans";letter-spacing:.22em;text-transform:uppercase;color:rgba(245,242,234,.6)}
-/* contact */
-.contact{padding:88px 0;text-align:left;border-bottom:1px solid var(--line)}
-.contact h2{margin:0 0 28px;font:600 52px/1.05 Fraunces,serif;letter-spacing:-.02em}
-/* footer */
-footer{padding:44px 0 36px;font-size:13.5px}
-.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px}
-.foot-nav{display:grid;gap:8px;text-align:right}
-.foot-nav a{text-decoration:none}
-.foot-nav a:hover{text-decoration:underline;text-underline-offset:4px}
-.foot-note{margin:28px 0 0;padding-top:20px;border-top:1px solid var(--line);color:var(--ink-soft);display:flex;justify-content:space-between}
-@media(max-width:820px){
-  .wordmark{font-size:17px}
-  nav.main{gap:14px}
-  nav.main .book{padding:9px 13px;white-space:nowrap}
-  .hero{grid-template-columns:1fr;padding:56px 0 48px}
-  .hero-side{border-left:0;border-top:1px solid var(--line);padding:24px 0 0;max-width:300px}
-  h1{font-size:44px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .stats>div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
-  .cols3{grid-template-columns:1fr}
-  .col{border-left:0;padding-left:0;border-top:1px solid var(--line)}
-  .col:first-child{border-top:0}
-  .band-grid{grid-template-columns:1fr}
-  .sec-head{grid-template-columns:1fr;gap:8px}
-  .statements{grid-template-columns:1fr}
-  .statement:first-child{padding-right:0}
-  .statement+.statement{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:24px;margin-top:24px}
-  .statement h2{font-size:24px}
-  .contact h2{font-size:36px}
-  .foot-top{flex-direction:column}
-  .foot-nav{text-align:left}
-  nav.main a:not(.book){display:none}
+.hero{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:56px var(--gut) 48px;position:relative;border-bottom:2px solid var(--ink)}
+.hero .kick{grid-column:1/8;grid-row:1;margin:0 0 28px;color:var(--mute)}
+.hero h1{grid-column:1/13;grid-row:2;margin:0;font:400 clamp(52px,7.8vw,118px)/.92 Fraunces,serif;font-variation-settings:"opsz" 144,"SOFT" 40;letter-spacing:-.035em;text-wrap:balance;max-width:12.5ch}
+.hero h1 em{display:inline-block;font-style:italic;font-weight:600;background:var(--acid);padding:.02em .12em 0;margin:.14em 0 0 clamp(0px,10vw,170px);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero .head{grid-column:10/13;grid-row:2/4;justify-self:end;align-self:start;width:clamp(150px,19vw,280px);margin-top:12px;transform:rotate(2.5deg)}
+.hero .head img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border:2px solid var(--ink);filter:grayscale(1) contrast(1.05)}
+.hero .head figcaption{margin-top:10px;color:var(--mute)}
+.hero .lede{grid-column:1/6;grid-row:3;margin:48px 0 0;font-size:clamp(18px,1.5vw,22px);line-height:1.45;color:var(--mute);text-wrap:pretty}
+.hero .links{grid-column:1/6;grid-row:4;display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;align-self:start}
+.pill{display:inline-flex;align-items:center;min-height:44px;padding:10px 20px;border:2px solid var(--ink);text-decoration:none;font-weight:500;font-size:15px;border-radius:0}
+.pill.solid{background:var(--ink);color:var(--bone)}
+.pill:hover{background:var(--acid);border-color:var(--ink);color:var(--ink)}
+.toc{grid-column:7/13;grid-row:3/5;margin-top:48px;align-self:end}
+.toc .th{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px 20px;margin-bottom:14px}
+.toc h2{margin:0;font:400 clamp(26px,2.4vw,34px)/1.1 Fraunces,serif;font-variation-settings:"opsz" 144;letter-spacing:-.02em}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc li[hidden]{display:none}
+.toc a{display:flex;align-items:baseline;gap:10px;text-decoration:none;padding:9px 0;border-top:1px solid var(--rule);font-size:clamp(16px,1.2vw,19px)}
+.toc a:hover .t,.toc a:focus-visible .t{text-decoration:underline;text-underline-offset:5px}
+.toc .t{flex:none}
+.toc .lead{flex:1;border-bottom:2px dotted var(--ink);transform:translateY(-.35em);min-width:24px}
+.toc .n{flex:none;font:500 13px/1 "IBM Plex Mono",monospace;letter-spacing:.08em}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;padding:0 14px;min-height:36px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;border-radius:0}
+.filters button[aria-pressed=true]{background:var(--ink);color:var(--bone)}
+.filters button:not([aria-pressed=true]):hover{background:var(--acid)}
+/* spreads */
+.spread{position:relative;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:24px;padding:72px var(--gut) 88px;border-bottom:2px solid var(--ink);overflow:hidden}
+.spread[hidden]{display:none}
+.spread.dark{background:var(--ink);color:var(--bone);--mute:var(--bone-mute);--rule:var(--bone-rule)}
+.spread.dark .rule{border-color:var(--bone)}
+.num{font:300 clamp(120px,20vw,300px)/.8 Fraunces,serif;font-variation-settings:"opsz" 144;letter-spacing:-.06em;margin:0;pointer-events:none;user-select:none}
+.num.hollow{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.dark .num{color:var(--acid)}
+.dark .num.hollow{color:transparent;-webkit-text-stroke:2px var(--acid)}
+.spread h2{margin:0;font:600 clamp(34px,4.6vw,72px)/1 Fraunces,serif;font-variation-settings:"opsz" 144;letter-spacing:-.03em;text-wrap:balance}
+.spread h2 a{text-decoration:none}
+.spread h2 a:hover{text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:3px}
+.date{color:var(--mute);margin:0 0 14px}
+.what{margin:18px 0 0;font-size:clamp(17px,1.35vw,21px);line-height:1.45;max-width:46ch;text-wrap:pretty}
+.why{margin:0;font:italic 400 clamp(26px,3.2vw,50px)/1.12 Fraunces,serif;font-variation-settings:"opsz" 144,"SOFT" 60;letter-spacing:-.02em;text-wrap:balance}
+.why::before{content:"\201C"}
+.why::after{content:"\201D"}
+.meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;color:var(--mute)}
+.meta .live{color:var(--ink);background:var(--acid);padding:3px 7px}
+.dark .meta .live{color:var(--ink)}
+.acts{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;font-weight:600;font-size:17px}
+.acts a{text-underline-offset:5px;text-decoration-thickness:2px}
+.shot{display:block;overflow:hidden;border:2px solid currentColor;background:#fff}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+/* rhythm A: number top-left, big image right, quote full width under */
+.a .num{grid-column:1/6;grid-row:1}
+.a .shot{grid-column:6/13;grid-row:1/3;aspect-ratio:16/11}
+.a .txt{grid-column:1/6;grid-row:2;align-self:end}
+.a .why{grid-column:3/13;grid-row:3;margin-top:40px}
+/* rhythm B (dark): full-bleed image, number overlaps its bottom edge, text in two columns */
+.b .shot{grid-column:1/13;grid-row:1;aspect-ratio:21/9;border-color:var(--bone)}
+.b .num{grid-column:1/13;grid-row:2;margin-top:-.55em;position:relative;z-index:1;text-align:right}
+.b .txt{grid-column:1/6;grid-row:3}
+.b .why{grid-column:7/13;grid-row:3;align-self:start}
+/* rhythm C: image left, number hangs off the right edge, text under number */
+.c .shot{grid-column:1/8;grid-row:1/4;aspect-ratio:16/11}
+.c .num{grid-column:8/13;grid-row:1;justify-self:end;margin-right:-.1em;text-align:right}
+.c .txt{grid-column:8/13;grid-row:2}
+.c .why{grid-column:8/13;grid-row:3;align-self:end;font-size:clamp(22px,2.1vw,34px)}
+/* rhythm D: the quote is the headline, number is a small folio, image narrow right */
+.d .num{grid-column:1/3;grid-row:1;font-size:clamp(64px,7vw,110px);font-weight:600;letter-spacing:-.04em}
+.d .why{grid-column:3/13;grid-row:1;font-size:clamp(30px,4.4vw,70px)}
+.d .txt{grid-column:1/7;grid-row:2;margin-top:40px}
+.d .shot{grid-column:8/13;grid-row:2;aspect-ratio:3/2;margin-top:40px}
+/* back page: the terminal */
+.back{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:28px;padding:72px var(--gut) 88px;border-bottom:2px solid var(--ink)}
+.back .kick{grid-column:1/13;margin:0;color:var(--mute)}
+.back h2{grid-column:1/7;margin:0;font:600 clamp(34px,4.6vw,72px)/1 Fraunces,serif;font-variation-settings:"opsz" 144;letter-spacing:-.03em}
+.back .sub{grid-column:7/13;margin:0;align-self:end;font-size:clamp(17px,1.35vw,21px);line-height:1.45;color:var(--mute);max-width:46ch;text-wrap:pretty}
+.back .term{grid-column:1/13}
+.term{--panel:#1f1d1a;--text:var(--bone);--dim:rgba(239,231,213,.6);--tl:rgba(239,231,213,.2);--acc:var(--acid);--ok:var(--acid);background:var(--ink);color:var(--text);border:2px solid var(--ink);overflow:hidden;font:400 14px/1.6 "IBM Plex Mono",monospace;min-width:0}
+.term a{color:var(--text);text-underline-offset:3px;text-decoration-color:var(--acc)}
+.term a:focus-visible,.term button:focus-visible{outline-color:var(--acc)}
+.term .bar{display:flex;gap:7px;align-items:center;padding:10px 14px;background:var(--panel);font-size:12px;color:var(--dim)}
+.term .bar i{width:10px;height:10px;border-radius:50%;background:var(--tl)}
+.term .bar span{margin-left:6px}
+.term .screen{height:380px;overflow-y:auto;padding:14px 16px 4px}
+.term .out{white-space:pre-wrap;word-break:break-word;margin:0 0 12px}
+.term .cmd{color:var(--dim)}.term .cmd b{color:var(--acc);font-weight:500}.term .typed{color:var(--text)}
+.term .h{color:var(--acc);font-weight:600}.term .dim{color:var(--dim)}.term .ok{color:var(--ok)}
+.term table{border-collapse:collapse;width:100%}.term td{padding:2px 12px 2px 0;vertical-align:top}
+.term td.d{color:var(--dim);white-space:nowrap}.term td.n{color:var(--acc);white-space:nowrap}
+.term .tag{display:inline-block;border:1px solid var(--tl);padding:0 5px;font-size:11px;color:var(--dim);margin-left:4px}
+.term .tag.live{color:var(--ok);border-color:rgba(207,227,26,.5)}
+.term .prompt{display:flex;gap:8px;align-items:center;padding:2px 0 12px;border-left:3px solid transparent;margin-left:-16px;padding-left:13px}
+.term .prompt:focus-within{border-left-color:var(--acc)}
+.term .prompt b{color:var(--acc);font-weight:500}
+.term input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--text);font:inherit;caret-color:var(--acc);padding:6px 0}
+.term .chips{display:flex;gap:8px;overflow-x:auto;padding:12px 16px 14px;border-top:1px solid var(--tl);scrollbar-width:none}
+.term .chips::-webkit-scrollbar{display:none}
+.term .chips button{flex:none;font:500 13px/1 "IBM Plex Mono",monospace;color:var(--text);background:var(--panel);border:1px solid var(--tl);border-radius:0;padding:10px 14px;min-height:40px;cursor:pointer}
+.term .chips button:hover{border-color:var(--acc);color:var(--acc)}
+.term .js-only{display:none}.has-js .term .js-only{display:flex}
+/* colophon */
+.colo{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:72px var(--gut);border-bottom:2px solid var(--ink)}
+.colo .thesis{grid-column:1/9;margin:0;font:600 clamp(32px,4.6vw,72px)/1.05 Fraunces,serif;font-variation-settings:"opsz" 144;letter-spacing:-.03em;text-wrap:balance}
+.colo .roles{grid-column:10/13;font-size:15px}
+.colo h3{margin:0 0 8px;color:var(--mute)}
+.colo ul{list-style:none;margin:0 0 26px;padding:0}
+.colo li{padding:8px 0;border-top:1px solid var(--rule)}
+.colo li b{display:block;font-weight:600}.colo li span{color:var(--mute)}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:26px var(--gut) 40px;color:var(--mute);font-size:15px}
+/* folio */
+.folio{position:fixed;right:18px;bottom:18px;background:var(--ink);color:var(--bone);padding:10px 12px;z-index:5;display:none}
+.has-js .folio.on{display:block}
+.folio b{color:var(--acid);font-weight:500}
+/* reveals: motion only when allowed */
+@media (prefers-reduced-motion:no-preference){
+  .has-js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .has-js .rv.num{transform:translateX(-6vw)}
+  .has-js .c .rv.num,.has-js .b .rv.num{transform:translateX(6vw)}
+  .has-js .rv.shot{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.2,.7,.2,1),opacity .4s}
+  .has-js .rv.in,.has-js .b .rv.num.in,.has-js .c .rv.num.in{opacity:1;transform:none;clip-path:inset(0)}
+  .has-js .rv.why{transition-delay:.15s}
+  .has-js .rv.txt{transition-delay:.08s}
+}
+@media (max-width:900px){
+  .mast{grid-template-columns:1fr auto;gap:12px}
+  .mast .vol{display:none}
+  .mast nav{gap:14px}.mast nav a:not(.keep){display:none}
+  .hero{padding:36px var(--gut) 40px;row-gap:0}
+  .hero .kick,.hero h1,.hero .lede,.hero .links,.toc{grid-column:1/13;grid-row:auto}
+  .hero .head{grid-column:1/13;grid-row:auto;justify-self:start;width:132px;margin:28px 0 0;transform:none}
+  .hero h1{font-size:clamp(46px,13.5vw,76px);max-width:none}
+  .hero h1 em{margin-left:0}
+  .hero .lede{margin-top:26px}
+  .toc{margin-top:40px}
+  .spread{padding:48px var(--gut) 56px;row-gap:18px}
+  .spread>*{grid-column:1/13 !important;grid-row:auto !important}
+  .num,.b .num,.c .num,.d .num{font-size:clamp(96px,30vw,150px);text-align:left;justify-self:start;margin:0}
+  .b .num{margin-top:-.45em}
+  .a .why,.c .why,.d .why{font-size:clamp(24px,7vw,32px);margin-top:14px}
+  .d .txt,.d .shot{margin-top:18px}
+  .a .shot,.b .shot,.c .shot,.d .shot{aspect-ratio:16/10}
+  .back{padding:48px var(--gut) 56px;row-gap:18px}
+  .back h2,.back .sub{grid-column:1/13}
+  .term{font-size:12.5px}
+  .term .screen{height:420px;padding:12px 10px 4px}
+  .term .prompt{margin-left:-10px;padding-left:7px}
+  .term td.d{display:none}
+  .term .bar span{display:none}
+  .colo{padding:48px var(--gut)}
+  .colo .thesis,.colo .roles{grid-column:1/13}
+  .colo .roles{margin-top:36px}
+  .folio{right:12px;bottom:12px;padding:8px 10px}
 }
 </style>
 </head>
 <body>
-<header><div class="shell">
-  <a class="wordmark" href="#top">Brandon Jeppson<b>.</b></a>
-  <nav class="main" aria-label="Primary"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#writing">Writing</a><a class="book" href="/book">Book a meeting</a></nav>
-</div></header>
-<main id="top" class="shell">
-  <section class="hero">
-    <div>
-      <span class="kicker">BYU Marriott MBA '27 · Provo, Utah · Geo-agnostic</span>
-      <h1>I turn customer signal into product decisions.<br><em>Then I build the thing.</em></h1>
-      <p class="hero-copy">Four years in GTM taught me discovery, pricing, segmentation, and how to test whether the data behind decisions actually holds up. Now I write the PRD and ship the software, too.</p>
-      <div class="hero-actions"><a class="btn primary" href="resume.pdf">View resume</a><a class="btn primary" href="https://www.linkedin.com/in/bjepp">Connect on LinkedIn</a></div>
-    </div>
-    <aside class="hero-side">
-      <img src="brandon.jpg" alt="Brandon Jeppson">
-      <div class="contact-mini">
-        <span class="kicker">Email</span>
-        <a href="mailto:brandonjeppson7@gmail.com">brandonjeppson7@gmail.com</a>
-        <span class="kicker">Based in</span>
-        Provo, Utah
-      </div>
-    </aside>
-  </section>
+<a class="skip" href="#work">Skip to the work</a>
+<header class="mast">
+  <a class="mark" href="/">Brandon Jeppson.</a>
+  <span class="vol mono">Vol. 01 · Product · AI · GTM · Provo, Utah</span>
+  <nav aria-label="Primary"><a href="#work">Work</a><a href="#terminal">Terminal</a><a href="#about">Thesis</a><a href="/ask">Ask</a><a class="keep" href="/book">Book a meeting</a></nav>
+</header>
 
-  <div class="skill-strip" aria-label="Capabilities"><div class="skill-track">Product: <a href="#work">AI prototyping</a> · <a href="#work">AI agent orchestration</a> · <a href="#work">prompt engineering</a> · <a href="#work">RAG</a> · <a href="#work">SQL</a> · <a href="#work">TypeScript / Python</a> &nbsp;|&nbsp; Go-to-market: <a href="#work">discovery</a> · <a href="#work">go-to-market strategy</a> · <a href="#work">cold calling</a> · <a href="#work">CRM cadence creation</a> · <a href="#work">pipeline reporting</a> &nbsp;|&nbsp; Stack: Salesforce · Jira · Supabase · Vercel · Next.js</div></div>
-
-  <section class="statements" id="about">
-    <div class="statement">
-      <span class="kicker">Product thesis</span>
-      <h2>Start with the customer. Check the data. Earn the conviction. Then build something people can actually use.</h2>
-    </div>
-    <div class="statement">
-      <span class="kicker">The pivot</span>
-      <h2>I spent four years carrying a quota. Turns out that is useful product training.</h2>
-      <p>I learned discovery, pricing, segmentation, and voice of customer with real money on the line. Now I use those reps to make better product calls.</p>
-    </div>
-  </section>
-
-  <section class="block" id="experience">
-    <div class="band-head"><div class="sec-head"><span class="sec-num">01</span><div>
-      <span class="kicker">Experience</span>
-      <h2>The work behind the claim</h2>
-    </div></div></div>
-    <div class="accordion">
-<details><summary>Breckenridge Pharmaceutical · Portfolio Strategy Intern</summary><div class="detail-body"><div class="role">Aug 2026-present · Provo, UT · Generic pharmaceutical manufacturer</div><ul><li>Building a valuation model scoring product opportunities on risk-adjusted NPV, payback, and required investment.</li><li>Developing a five-year growth plan with revenue and margin projections guiding licensing and acquisition decisions.</li><li>Stress-testing investment thresholds through sensitivity analysis, presenting recommendations to the C-suite.</li></ul></div></details>
-<details><summary>AI Foundry @ BYU · Director of Product</summary><div class="detail-body"><div class="role">Founding Member · Director of Product · May 2026-present</div><ul><li>Working on the flagship AI Foundry project for a major pharmaceutical client, delivering an operations audit and scoping the product hypothesis behind its generic go-to-market decisions.</li><li>Established and designed the UX/UI and system architecture for the studio's AI operating tools, setting the precedent for current and future studio processes.</li><li>Owned aifoundry.byu.edu from wireframe to production: designed each stage of the site, then shipped it end to end in TypeScript (Supabase, Vercel) for live users.</li><li>Lead the AI integration for the Cougar Strategy Group, directing MBA and undergraduate teams.</li></ul></div></details>
-<details open><summary>Redo · 3PL Partnerships Management Internship</summary><div class="detail-body"><div class="role">May-Aug 2026</div><ul><li>Built the 3PL channel's pipeline from 0 to 43 C-suite and VP meetings in nine weeks (88% accepted, 77% held) across prospects representing $2B+ in collective annual revenue, proving the channel as a legitimate growth case.</li><li>Wrote the PRDs behind the pipeline tracker and CRM dashboard that became the team's operating rhythm, prompting leadership to approve a seasoned partnerships hire; trained my manager and VP before handoff.</li><li>Redesigned a rejected partner offer into a new offering that opened margin with zero added labor for 3PLs already shipping customer product, delivering more advantageous unit economics.</li><li>Instrumented the funnel, briefing 90+ of 233 prospected accounts (~39%); replaced a company-size qualification gate with customer segmentation after a base-rate teardown exposed a small-sample artifact.</li></ul></div></details>
-<details><summary>Awardco · Assistant Account Executive → Account Executive</summary><div class="detail-body"><div class="role">November 2022-July 2025</div><ul><li><b>Account Executive (Jan 2024-Jul 2025):</b> Cut the sales cycle by roughly 55% through a one-call-close talk track adapted from the enterprise motion down market, established team-wide.</li><li>Established lower pricing minimums ($5K to $4K, pushing toward $3K), helped write the SMB playbook adopted by 21 account executives and their SDRs, and ranked top 10% in average quota attainment.</li><li><b>Assistant Account Executive (Nov 2022-Jan 2024):</b> Generated $1.5M+ qualified pipeline and $871K closed (#1 of 7 in sourced closed-won, #2 in gross pipeline) by building business cases from ESG reports, 10-K filings, and executive announcements.</li><li>Gathered the customer and technical requirements that defined Kimberly-Clark's custom integration build and translated client outcomes into product tickets for a standing PM-engineering group.</li></ul></div></details>
-<details><summary>Fiddle · Founding SDR</summary><div class="detail-body"><div class="role">January-October 2022 · early-stage operations software startup</div><ul><li>Ran 150+ customer discovery calls and designed the contact-and-company tracker behind them, turning value-proposition response into a documented, repeatable workflow.</li><li>Surfaced recurring ERP-integration pain from SMB CPG prospects directly to the founder-CTO, shifting the roadmap toward a broader API integrations library on that signal.</li><li>Rewrote go-to-market scripts and customer-facing copy as the product changed, resulting in a 9% lift in demo-to-opportunity conversion.</li></ul></div></details>
-<details><summary>Education · BYU Marriott MBA</summary><div class="detail-body"><div class="role">MBA in Marketing &amp; AI Integration · April 2027</div><ul><li>Jodi L. and Robert W. Call Endowed Scholarship Fund.</li><li>Founding member of BYU AI Consultancy Group; Adam Smith Society President (BYU chapter).</li><li>BA in Humanities (American Studies), December 2021; minors in Global Business and Scandinavian Studies; Danish Fluency Certificate.</li></ul></div></details>
-
-    </div>
-  </section>
-
-  <section class="block" id="work">
-    <div class="sec-head"><span class="sec-num">02</span><div>
-      <span class="kicker">Selected work</span>
-      <h2>Things I built because a slide was not enough</h2>
-      <p>Everything below is a live product or public repo.<br>Open it. Break it. Ask me why I made the tradeoffs I did.</p>
-    </div></div>
-    <div class="cols3">
-      <div class="col"><h3>Products in production</h3><p>Working systems people can use today.</p><ul class="plist"><li><a href="https://bjepp77.github.io/swolequest/">SwoleQuest ↗<small>Nostalgic retro workout ecosystem.</small></a></li><li><a href="https://aifoundry.byu.edu">aifoundry.byu.edu ↗<small>Product studio site, built end to end with live users.</small></a></li><li><a href="/book">/book scheduling system ↗<small>A Calendly-style scheduler built from scratch: free/busy, slot holds, Meet links, invites.</small></a></li></ul></div>
-      <div class="col"><h3>Research &amp; decision tools</h3><p>Signal turned into an interface and a decision.</p><ul class="plist"><li><a href="https://github.com/Bjepp77/trade-scout">Trade Scout ↗<small>Multi-source dynasty football trade evaluator.</small></a></li><li><a href="https://github.com/Bjepp77/thrift-scout-public">Thrift Scout ↗<small>Autonomous sourcing agent for resale inventory.</small></a></li><li><a href="https://github.com/Bjepp77/walnut">Walnut ↗<small>Private local voice dictation and narration for macOS.</small></a></li></ul></div>
-      <div class="col"><h3>Systems &amp; experiments</h3><p>Small tools that tighten an operating loop.</p><ul class="plist"><li><a href="https://github.com/Bjepp77/Bjepp77.github.io">This portfolio ↗<small>One repo serving GitHub Pages and a serverless booking flow.</small></a></li><li><a href="https://github.com/Bjepp77">GitHub archive ↗<small>The source, not a screenshot.</small></a></li></ul></div>
-    </div>
-    <div class="cols3" style="margin-top:48px;grid-template-columns:1fr 1fr">
-      <div class="col" style="border-left:0;padding-left:0"><span class="kicker" style="margin-bottom:10px">Leadership</span><h3>Where else the reps come from</h3><ul class="leadership-list" style="margin-top:14px"><li><b>Director of Product</b> · BYU AI Foundry</li><li><b>Director of AI</b> · Cougar Strategy Group</li><li><b>Chapter President</b> · BYU Adam Smith Society</li></ul></div>
-      <div class="col" id="writing"><span class="kicker" style="margin-bottom:10px">Writing</span><h3>8,200 followers. 500+ connections. 357 posts.</h3><p style="margin-top:10px">A public record of the reps: building, selling, lifting, family, and what I am learning in the open. Written in my own voice, before the job depended on it. The last 12 months reached 651K impressions.</p><a class="btn" style="margin-top:14px" href="https://www.linkedin.com/in/bjepp">Read me on LinkedIn ↗</a></div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <span class="kicker" style="margin-bottom:16px;display:block">Contact</span>
-    <h2>Have a messy product problem? Work with us at the BYU MBA AI Foundry.</h2>
-    <a class="btn primary" href="/book">Book a meeting</a>
-  </section>
-</main>
-<footer><div class="shell">
-  <div class="foot-top">
-    <div><span class="wordmark">Brandon Jeppson<b>.</b></span><p style="color:var(--ink-soft);margin:10px 0 0">Product · AI · GTM. Provo, Utah.</p></div>
-    <nav class="foot-nav" aria-label="Footer"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#writing">Writing</a><a href="/book">Book a meeting</a><a href="resume.pdf">Resume</a><a href="mailto:brandonjeppson7@gmail.com">Email</a></nav>
+<section class="hero">
+  <p class="kick mono">Product · AI · GTM · Provo, Utah</p>
+  <h1>I turn customer signal into product decisions. <em>Then I build the thing.</em></h1>
+  <figure class="head">
+    <img src="brandon.jpg" alt="Brandon Jeppson" width="480" height="480">
+    <figcaption class="mono">Brandon Jeppson, Provo</figcaption>
+  </figure>
+  <p class="lede">This page is the receipt. Everything below is something I shipped, newest first, with a link to the live product or the source.</p>
+  <div class="links">
+    <a class="pill solid" href="#work">See the ledger</a>
+    <a class="pill" href="resume.pdf">Resume</a>
+    <a class="pill" href="https://github.com/Bjepp77">GitHub</a>
+    <a class="pill" href="https://www.linkedin.com/in/bjepp">LinkedIn</a>
   </div>
-  <div class="foot-note"><span>© 2026 Brandon Jeppson.</span><span>Preview mock. Copy locked. Structure only.</span></div>
-</div></footer>
-</body></html>
+  <nav class="toc" aria-label="Contents">
+    <div class="th">
+      <h2>Shipped, newest first</h2>
+      <div class="filters" role="group" aria-label="Filter entries">
+        <button type="button" aria-pressed="true" data-f="all">All</button>
+        <button type="button" aria-pressed="false" data-f="live">Live</button>
+        <button type="button" aria-pressed="false" data-f="ai">AI</button>
+        <button type="button" aria-pressed="false" data-f="source">Source only</button>
+      </div>
+    </div>
+    <ol>
+      <li data-tags="ai source"><a href="#p1"><span class="t">agent-jepp-toolkit</span><span class="lead"></span><span class="n">I</span></a></li>
+      <li data-tags="live source"><a href="#p2"><span class="t">Ends of the Earth</span><span class="lead"></span><span class="n">II</span></a></li>
+      <li data-tags="live"><a href="#p3"><span class="t">SwoleQuest</span><span class="lead"></span><span class="n">III</span></a></li>
+      <li data-tags="live source"><a href="#p4"><span class="t">/book scheduler</span><span class="lead"></span><span class="n">IV</span></a></li>
+      <li data-tags="source"><a href="#p5"><span class="t">Trade Scout</span><span class="lead"></span><span class="n">V</span></a></li>
+      <li data-tags="ai"><a href="#p6"><span class="t">Thrift Scout</span><span class="lead"></span><span class="n">VI</span></a></li>
+      <li data-tags="ai source"><a href="#p7"><span class="t">Walnut</span><span class="lead"></span><span class="n">VII</span></a></li>
+      <li data-tags="live ai"><a href="#p8"><span class="t">aifoundry.byu.edu</span><span class="lead"></span><span class="n">VIII</span></a></li>
+    </ol>
+  </nav>
+</section>
 
+<main id="work">
+  <article class="spread a" id="p1" data-n="I" data-tags="ai source">
+    <p class="num rv" aria-hidden="true">01</p>
+    <a class="shot rv" href="https://github.com/Bjepp77/agent-jepp-toolkit"><img src="img/projects/jeppos.png" alt="Jepp.OS architecture: a Manager over department leads and workers, with inbox, handoffs, reviewer and hooks" loading="lazy"></a>
+    <div class="txt rv">
+      <p class="date mono">No. 01 · Oct 2026 · updated Nov</p>
+      <h2><a href="https://github.com/Bjepp77/agent-jepp-toolkit">agent-jepp-toolkit</a></h2>
+      <p class="what">A multi-agent operating system for Claude Code: a manager, department leads and workers, with hooks that enforce the rules.</p>
+      <div class="meta mono"><span>Python</span><span>Agents</span><span>Open source</span></div>
+      <div class="acts"><a href="https://github.com/Bjepp77/agent-jepp-toolkit">Source ↗</a></div>
+    </div>
+    <p class="why rv">I wanted my agents to move fast without ever pushing work I didn&#39;t approve or committing a secret.</p>
+  </article>
+
+  <article class="spread b dark" id="p2" data-n="II" data-tags="live source">
+    <a class="shot rv" href="https://bjepp77.github.io/ends-of-the-earth/"><img src="img/projects/ends-of-the-earth.jpg" alt="Ends of the Earth: world map with a welcome tour and a trail panel" loading="lazy"></a>
+    <p class="num hollow rv" aria-hidden="true">02</p>
+    <div class="txt rv">
+      <p class="date mono">No. 02 · Oct 2026 · updated Nov</p>
+      <h2><a href="https://bjepp77.github.io/ends-of-the-earth/">Ends of the Earth</a></h2>
+      <p class="what">A daily geography game on Church history and temples. Pin the answer, score by distance.</p>
+      <div class="meta mono"><span class="live">Live</span><span>HTML</span><span>GitHub Pages</span></div>
+      <div class="acts"><a href="https://bjepp77.github.io/ends-of-the-earth/">Play it ↗</a><a href="https://github.com/Bjepp77/ends-of-the-earth">Source ↗</a></div>
+    </div>
+    <p class="why rv">Most of us know the first answer, so I wanted a game that rewards the one you only reach by remembering a mission call or a map in the back of your scriptures.</p>
+  </article>
+
+  <article class="spread c" id="p3" data-n="III" data-tags="live">
+    <a class="shot rv" href="https://bjepp77.github.io/swolequest/"><img src="img/projects/swolequest.jpg" alt="SwoleQuest title screen with a pixel-art lifter" loading="lazy"></a>
+    <p class="num hollow rv" aria-hidden="true">03</p>
+    <div class="txt rv">
+      <p class="date mono">No. 03 · Sep 2026</p>
+      <h2><a href="https://bjepp77.github.io/swolequest/">SwoleQuest</a></h2>
+      <p class="what">A nostalgic, retro workout ecosystem in 16-bit style.</p>
+      <div class="meta mono"><span class="live">Live</span><span>HTML</span><span>GitHub Pages</span></div>
+      <div class="acts"><a href="https://bjepp77.github.io/swolequest/">Open it ↗</a><a href="https://github.com/Bjepp77/swolequest">Source ↗</a></div>
+    </div>
+    <p class="why rv">Most workout trackers feel like tax software with dumbbells, and my bet is that people keep training when they can see their progress.</p>
+  </article>
+
+  <article class="spread d" id="p4" data-n="IV" data-tags="live source">
+    <p class="num rv" aria-hidden="true">04</p>
+    <p class="why rv">I wanted to find out if I could build the scheduler I&#39;d otherwise pay for, start to finish.</p>
+    <div class="txt rv">
+      <p class="date mono">No. 04 · Sep 2026</p>
+      <h2><a href="/book">/book scheduler</a></h2>
+      <p class="what">A Calendly-style scheduler built from scratch: free/busy, slot holds, Meet links, invites. Lives in the same repo as this site.</p>
+      <div class="meta mono"><span class="live">Live</span><span>JavaScript</span><span>Serverless</span></div>
+      <div class="acts"><a href="/book">Book a slot ↗</a><a href="https://github.com/Bjepp77/Bjepp77.github.io">Source ↗</a></div>
+    </div>
+    <a class="shot rv" href="/book"><img src="img/projects/book.jpg" alt="The booking page" loading="lazy"></a>
+  </article>
+
+  <article class="spread a" id="p5" data-n="V" data-tags="source">
+    <p class="num rv" aria-hidden="true">05</p>
+    <a class="shot rv" href="https://github.com/Bjepp77/trade-scout"><img src="img/projects/trade-scout.png" alt="Trade Scout pricing a sample trade under four value sources, with per-source verdicts" loading="lazy"></a>
+    <div class="txt rv">
+      <p class="date mono">No. 05 · Aug 2026 · updated Nov</p>
+      <h2><a href="https://github.com/Bjepp77/trade-scout">Trade Scout</a></h2>
+      <p class="what">A local dynasty fantasy football trade evaluator. It prices every trade against several value sources and returns a consensus verdict.</p>
+      <div class="meta mono"><span>Python</span><span>Decision tool</span><span>Open source</span></div>
+      <div class="acts"><a href="https://github.com/Bjepp77/trade-scout">Source ↗</a></div>
+    </div>
+    <p class="why rv">Every trade calculator gives you one confident number and they often disagree, so I wanted to see all four side by side before I trade.</p>
+  </article>
+
+  <article class="spread b dark" id="p6" data-n="VI" data-tags="ai">
+    <a class="shot rv" href="https://github.com/Bjepp77/thrift-scout-public"><img src="img/projects/thrift-scout.png" alt="Thrift Scout morning report of matching listings, sample data" loading="lazy"></a>
+    <p class="num hollow rv" aria-hidden="true">06</p>
+    <div class="txt rv">
+      <p class="date mono">No. 06 · 2026</p>
+      <h2><a href="https://github.com/Bjepp77/thrift-scout-public">Thrift Scout</a></h2>
+      <p class="what">An autonomous sourcing agent for resale inventory.</p>
+      <div class="meta mono"><span>Python</span><span>Agent</span><span>Open source</span></div>
+      <div class="acts"><a href="https://github.com/Bjepp77/thrift-scout-public">Source ↗</a></div>
+    </div>
+    <p class="why rv">I wanted the searching done for me, so all I do each morning is read a short report and bid or move on.</p>
+  </article>
+
+  <article class="spread d" id="p7" data-n="VII" data-tags="ai source">
+    <p class="num rv" aria-hidden="true">07</p>
+    <p class="why rv">The good dictation tools all send your voice to someone else&#39;s server, so I built one that runs on my own Mac.</p>
+    <div class="txt rv">
+      <p class="date mono">No. 07 · Jul 2026 · updated Oct</p>
+      <h2><a href="https://github.com/Bjepp77/walnut">Walnut</a></h2>
+      <p class="what">Private, local voice dictation and narration for macOS. Whisper on your own silicon: no cloud, no keys, no subscription.</p>
+      <div class="meta mono"><span>Python</span><span>On-device AI</span><span>Open source</span></div>
+      <div class="acts"><a href="https://github.com/Bjepp77/walnut">Source ↗</a></div>
+    </div>
+    <a class="shot rv" href="https://github.com/Bjepp77/walnut"><img src="img/projects/walnut.png" alt="Walnut dashboard with dictation and reading activity, sample data" loading="lazy"></a>
+  </article>
+
+  <article class="spread c" id="p8" data-n="VIII" data-tags="live ai">
+    <a class="shot rv" href="https://aifoundry.byu.edu"><img src="img/projects/aifoundry.jpg" alt="The AI Foundry at BYU homepage" loading="lazy"></a>
+    <p class="num hollow rv" aria-hidden="true">08</p>
+    <div class="txt rv">
+      <p class="date mono">No. 08 · May 2026 · ongoing</p>
+      <h2><a href="https://aifoundry.byu.edu">aifoundry.byu.edu</a></h2>
+      <p class="what">The AI Foundry studio site. I played a major role in designing and building it, in TypeScript on Supabase and Vercel.</p>
+      <div class="meta mono"><span class="live">Live</span><span>TypeScript</span><span>Supabase</span><span>Vercel</span></div>
+      <div class="acts"><a href="https://aifoundry.byu.edu">Visit ↗</a></div>
+    </div>
+    <p class="why rv">The AI Foundry needed a real home online, and as its Director of Product I played a major role in the designing and building process.</p>
+  </article>
+</main>
+
+<section class="back" id="terminal">
+  <p class="kick mono">Back page · Terminal</p>
+  <h2 class="rv">Or ask the shell.</h2>
+  <p class="sub rv">The same ledger, as a command line. Tap a command or type <code>help</code>.</p>
+  <div class="term rv">
+    <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>brandon@provo: ~</span></div>
+    <div class="screen" id="screen" aria-live="polite">
+      <div class="out"><span class="cmd"><b>~ $</b> <span class="typed">whoami</span></span>
+<span class="h">Brandon Jeppson</span>. Product, AI and GTM. Provo, Utah.
+I turn customer signal into product decisions. Then I build the thing.</div>
+      <div class="out"><span class="cmd"><b>~ $</b> <span class="typed">ls projects/</span></span>
+<table id="plist"><tr><td class="d">2026-10</td><td class="n">agent-toolkit</td><td>Multi-agent OS for Claude Code, enforced by hooks <span class="tag">source</span></td></tr>
+<tr><td class="d">2026-10</td><td class="n">ends-of-the-earth</td><td>Daily geography game on Church history and temples <span class="tag live">live</span></td></tr>
+<tr><td class="d">2026-09</td><td class="n">swolequest</td><td>Retro 16-bit workout ecosystem <span class="tag live">live</span></td></tr>
+<tr><td class="d">2026-09</td><td class="n">book</td><td>Calendly-style scheduler built from scratch <span class="tag live">live</span></td></tr>
+<tr><td class="d">2026-08</td><td class="n">trade-scout</td><td>Fantasy trade evaluator with a consensus verdict <span class="tag">source</span></td></tr>
+<tr><td class="d">2026-07</td><td class="n">walnut</td><td>Private on-device voice dictation for macOS <span class="tag">source</span></td></tr>
+<tr><td class="d">2026-06</td><td class="n">thrift-scout</td><td>Autonomous sourcing agent for resale inventory <span class="tag">source</span></td></tr>
+<tr><td class="d">2026-05</td><td class="n">aifoundry</td><td>aifoundry.byu.edu, major role in design and build <span class="tag live">live</span></td></tr></table></div>
+      <div id="log"></div>
+      <label class="prompt js-only" for="in"><b>~ $</b><input id="in" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Type a command" enterkeyhint="go"></label>
+    </div>
+    <nav class="chips js-only" id="chips" aria-label="Terminal commands"></nav>
+  </div>
+</section>
+
+<section class="colo" id="about">
+  <p class="thesis rv">Start with the customer. Check the data. Earn the conviction. Then build something people can actually use.</p>
+  <aside class="roles" id="experience" aria-label="Current roles">
+    <h3 class="mono">Now</h3>
+    <ul>
+      <li><b>Director of Product</b><span>AI Foundry @ BYU</span></li>
+      <li><b>Portfolio Strategy Intern</b><span>Breckenridge Pharmaceutical</span></li>
+      <li><b>MBA, April 2027</b><span>BYU Marriott</span></li>
+    </ul>
+    <h3 class="mono">Before</h3>
+    <ul>
+      <li><b>Account Executive</b><span>Awardco</span></li>
+      <li><b>Founding SDR</b><span>Fiddle</span></li>
+    </ul>
+  </aside>
+</section>
+
+<!-- HIDDEN until first post exists (owner, 2026-11-06). To restore: delete this comment line and the closing one below.
+<section class="writing" id="writing">
+  <p class="kick mono">Writing</p>
+  <p>Posts would appear here on the same dated ledger, so writing and shipping read as one record.</p>
+  <p><a href="https://www.linkedin.com/in/bjepp">Read me on LinkedIn ↗</a></p>
+</section>
+END HIDDEN writing section -->
+
+<footer>
+  <span>© 2026 Brandon Jeppson · Provo, Utah</span>
+  <span><a href="mailto:brandonjeppson7@gmail.com">brandonjeppson7@gmail.com</a> · <a href="/book">Book a meeting</a></span>
+</footer>
+
+<div class="folio mono" id="folio" aria-hidden="true"><b id="fn">I</b> / VIII</div>
+
+<script>
+document.documentElement.classList.add('has-js');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const rv=[...document.querySelectorAll('.rv')];
+let q=()=>{};
+if(reduce){rv.forEach(e=>e.classList.add('in'))}
+else{
+  let left=rv.slice(),tick=false;
+  const check=()=>{tick=false;const h=innerHeight*0.9;left=left.filter(e=>{if(e.closest('[hidden]'))return true;if(e.getBoundingClientRect().top<h){e.classList.add('in');return false}return true})};
+  q=()=>{if(!tick){tick=true;requestAnimationFrame(check)}};
+  addEventListener('scroll',q,{passive:true});addEventListener('resize',q);addEventListener('load',q);q();
+}
+const folio=document.getElementById('folio'),fn=document.getElementById('fn');
+const fo=new IntersectionObserver(es=>{es.forEach(x=>{if(x.isIntersecting){fn.textContent=x.target.dataset.n;folio.classList.add('on')}})},{rootMargin:'-45% 0px -45% 0px'});
+document.querySelectorAll('.spread').forEach(s=>fo.observe(s));
+const eo=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)folio.classList.remove('on')}),{threshold:.2});
+document.querySelectorAll('.hero,.back,.colo,footer').forEach(s=>eo.observe(s));
+
+/* filters: hide spreads and contents lines that do not match */
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
+  const f=b.dataset.f;
+  document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  document.querySelectorAll('[data-tags]').forEach(e=>{e.hidden=f!=='all'&&!e.dataset.tags.split(' ').includes(f)});
+  q();
+}));
+
+/* terminal */
+const P={
+ "agent-toolkit":{url:"https://github.com/Bjepp77/agent-jepp-toolkit",what:"A multi-agent operating system for Claude Code: a manager, department leads and workers, with hooks that enforce the rules.",stack:"Python",live:false,why:"I wanted my agents to move fast without ever pushing work I didn&#39;t approve or committing a secret."},
+ "ends-of-the-earth":{url:"https://bjepp77.github.io/ends-of-the-earth/",src:"https://github.com/Bjepp77/ends-of-the-earth",what:"A daily geography game on Church history and temples. Pin the answer, score by distance.",stack:"HTML, GitHub Pages",live:true,why:"Most of us know the first answer, so I wanted a game that rewards the one you only reach by remembering a mission call or a map in the back of your scriptures."},
+ "swolequest":{url:"https://bjepp77.github.io/swolequest/",src:"https://github.com/Bjepp77/swolequest",what:"A nostalgic, retro workout ecosystem in 16-bit style.",stack:"HTML, GitHub Pages",live:true,why:"Most workout trackers feel like tax software with dumbbells, and my bet is that people keep training when they can see their progress."},
+ "book":{url:"/book",src:"https://github.com/Bjepp77/Bjepp77.github.io",what:"A Calendly-style scheduler built from scratch: free/busy, slot holds, Meet links, invites.",stack:"JavaScript, serverless",live:true,why:"I wanted to find out if I could build the scheduler I&#39;d otherwise pay for, start to finish."},
+ "trade-scout":{url:"https://github.com/Bjepp77/trade-scout",what:"A local dynasty fantasy football trade evaluator. Prices every trade against several value sources and returns a consensus verdict.",stack:"Python",live:false,why:"Every trade calculator gives you one confident number and they often disagree, so I wanted to see all four side by side before I trade."},
+ "walnut":{url:"https://github.com/Bjepp77/walnut",what:"Private, local voice dictation and narration for macOS. Whisper on your own silicon: no cloud, no keys, no subscription.",stack:"Python",live:false,why:"The good dictation tools all send your voice to someone else&#39;s server, so I built one that runs on my own Mac."},
+ "thrift-scout":{url:"https://github.com/Bjepp77/thrift-scout-public",what:"An autonomous sourcing agent for resale inventory.",stack:"Python",live:false,why:"I wanted the searching done for me, so all I do each morning is read a short report and bid or move on."},
+ "aifoundry":{url:"https://aifoundry.byu.edu",what:"The AI Foundry studio site. Played a major role in designing and building it, in TypeScript on Supabase and Vercel.",stack:"TypeScript, Supabase, Vercel",live:true,why:"The AI Foundry needed a real home online, and as its Director of Product I played a major role in the designing and building process."}
+};
+const L=(href,t)=>`<a href="${href}" target="_blank" rel="noopener">${t||href.replace(/^https?:\/\//,'')}</a>`;
+const C={
+ help:()=>`<span class="h">Commands</span>
+  whoami          who I am, in four lines
+  ls projects/    everything I've shipped, newest first
+  open &lt;name&gt;     details and links for one project
+  now             what I'm doing this semester
+  thesis          how I make product calls
+  resume          the PDF
+  contact         email, LinkedIn, GitHub
+  book            book a meeting
+  clear           clear the screen
+<span class="dim">Tab completes. Up and down walk your history.</span>`,
+ whoami:()=>`<span class="h">Brandon Jeppson</span>. Product, AI and GTM. Provo, Utah.
+I turn customer signal into product decisions. Then I build the thing.`,
+ ls:()=>document.getElementById('plist').outerHTML,
+ open:(a)=>{const k=(a||'').replace(/\/$/,'');const p=P[k];
+   if(!p) return `open: <span class="dim">no project named "${k||''}". Try</span> ls projects/`;
+   return `<span class="h">${k}</span> ${p.live?'<span class="tag live">live</span>':'<span class="tag">source</span>'}
+${p.what}
+<span class="dim">stack</span>  ${p.stack}
+<span class="dim">${p.live?'live ':'repo '}</span>  ${L(p.url)}${p.src?`\n<span class="dim">repo </span>  ${L(p.src)}`:''}
+<span class="dim">why  </span>  ${p.why}`},
+ now:()=>`<span class="h">Now</span>
+  Director of Product          AI Foundry @ BYU
+  Portfolio Strategy Intern    Breckenridge Pharmaceutical
+  MBA, April 2027              BYU Marriott
+<span class="h">Before</span>
+  Account Executive            Awardco
+  Founding SDR                 Fiddle`,
+ thesis:()=>`Start with the customer. Check the data. Earn the conviction.
+Then build something people can actually use.`,
+ resume:()=>`<span class="ok">→</span> ${L('resume.pdf','resume.pdf')}`,
+ contact:()=>`<span class="dim">email   </span> <a href="mailto:brandonjeppson7@gmail.com">brandonjeppson7@gmail.com</a>
+<span class="dim">linkedin</span> ${L('https://www.linkedin.com/in/bjepp')}
+<span class="dim">github  </span> ${L('https://github.com/Bjepp77')}`,
+ book:()=>`<span class="ok">→</span> ${L('/book','Book a meeting')} <span class="dim">(a scheduler I built, too)</span>`,
+ sudo:(a)=>/hire/.test(a||'')?`<span class="ok">[sudo] permission granted.</span> Next step: ${L('/book','book a meeting')}`:`sudo: <span class="dim">nice try. Try</span> sudo hire brandon`
+};
+C.projects=C.ls;C['?']=C.help;C.cat=(a)=>a==='thesis.md'?C.thesis():`cat: <span class="dim">try</span> cat thesis.md`;
+const log=document.getElementById('log'),inp=document.getElementById('in'),screen=document.getElementById('screen');
+const hist=[];let hi=0;
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function run(raw){
+  const line=raw.trim(); if(!line) return;
+  hist.push(line);hi=hist.length;
+  const [c0,...rest]=line.split(/\s+/);const c=c0.toLowerCase();const arg=rest.join(' ');
+  if(c==='clear'){screen.querySelectorAll('.out').forEach(n=>n.remove());log.innerHTML='';return}
+  const fn=C[c]; const body=fn?fn(arg):`${esc(c)}: <span class="dim">command not found. Try</span> help`;
+  const d=document.createElement('div');d.className='out';
+  d.innerHTML=`<span class="cmd"><b>~ $</b> <span class="typed">${esc(line)}</span></span>\n${body}`;
+  log.appendChild(d);
+  screen.scrollTop=screen.scrollHeight;
+}
+inp.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){run(inp.value);inp.value=''}
+  else if(e.key==='ArrowUp'){if(hi>0){hi--;inp.value=hist[hi]}e.preventDefault()}
+  else if(e.key==='ArrowDown'){if(hi<hist.length){hi++;inp.value=hist[hi]||''}e.preventDefault()}
+  else if(e.key==='Tab'&&!e.shiftKey&&inp.value.trim()){e.preventDefault();const v=inp.value;const parts=v.split(' ');
+    const pool=parts.length>1?Object.keys(P).map(k=>parts[0]+' '+k):Object.keys(C);
+    const m=pool.filter(x=>x.startsWith(v));if(m.length===1)inp.value=m[0]+(parts.length>1?'':' ')}
+});
+screen.addEventListener('click',e=>{if(!e.target.closest('a')&&!window.getSelection().toString())inp.focus({preventScroll:true})});
+const chips=['help','whoami','ls projects/','open book','open trade-scout','now','thesis','contact','resume','book'];
+const cw=document.getElementById('chips');
+chips.forEach(t=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.onclick=()=>run(t);cw.appendChild(b)});
+</script>
+</body>
+</html>
