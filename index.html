@@ -497,7 +497,7 @@ inp.addEventListener('keydown',e=>{
   if(e.key==='Enter'){run(inp.value);inp.value=''}
   else if(e.key==='ArrowUp'){if(hi>0){hi--;inp.value=hist[hi]}e.preventDefault()}
   else if(e.key==='ArrowDown'){if(hi<hist.length){hi++;inp.value=hist[hi]||''}e.preventDefault()}
-  else if(e.key==='Tab'){e.preventDefault();const v=inp.value;const parts=v.split(' ');
+  else if(e.key==='Tab'&&!e.shiftKey&&inp.value.trim()){e.preventDefault();const v=inp.value;const parts=v.split(' ');
     const pool=parts.length>1?Object.keys(P).map(k=>parts[0]+' '+k):Object.keys(C);
     const m=pool.filter(x=>x.startsWith(v));if(m.length===1)inp.value=m[0]+(parts.length>1?'':' ')}
 });
