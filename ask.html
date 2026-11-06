@@ -35,7 +35,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .mast .mark{font:700 22px/1 Fraunces,serif;font-variation-settings:"opsz" 144;text-decoration:none;letter-spacing:-.02em}
 .mast .vol{color:var(--mute);text-align:center}
 .mast .desktop-nav{display:flex;gap:22px;justify-content:end;align-items:center}
-.mast nav a{text-decoration:none;font-size:15px}
+.mast nav a{text-decoration:none;font-size:15px;white-space:nowrap}
 .mast nav a:hover,.mast nav a[aria-current]{text-decoration:underline;text-underline-offset:5px}
 .mobile-menu{display:none;font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;padding:0 14px;min-height:40px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;border-radius:0}
 .mobile-menu[aria-expanded=true]{background:var(--ink);color:var(--bone)}
@@ -152,6 +152,7 @@ const history=[];
 const LOADERS=["cooking","checking the tape","reading my own posts","consulting the fact base","stacking lines"];
 const menu=document.querySelector('.mobile-menu'),panel=document.querySelector('.mobile-panel');
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));panel.classList.toggle('open',!open)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){menu.setAttribute('aria-expanded','false');panel.classList.remove('open');menu.focus()}});
 document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{q.value=c.textContent;form.requestSubmit()}));
 function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
 function fmt(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/^[-•] (.+)$/gm,'&nbsp;&nbsp;· $1')}
