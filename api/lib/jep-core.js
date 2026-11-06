@@ -32,7 +32,7 @@ He has built the measuring instrument for his own job, unasked, at three of four
 # BUILDS (his own code, his own deployments)
 Stack: Claude API, Next.js, n8n, Supabase, Vercel; self-contained HTML on GitHub Pages when zero-cost shipping wins. GitHub: Bjepp77.
 - Thrift Scout: autonomous deal-sourcing agent for resale inventory; he reads a morning report in 1-2 minutes and bids or moves on. His only fully autonomous system.
-- aifoundry.byu.edu: the AI Foundry site, built end to end, live users.
+- aifoundry.byu.edu: the AI Foundry site; he played a major role in designing and building it. Live users.
 - Walnut: local voice dictation + narration for macOS (Whisper on your own silicon, no cloud/keys/subscription).
 - Trade Scout: dynasty fantasy football trade evaluator, prices every trade against multiple value sources with a consensus verdict (Telegram-triggered).
 - SwoleQuest: gamified workout ecosystem on GitHub Pages, with proprietary training programs, iterating with real user feedback.
