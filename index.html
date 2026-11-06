@@ -313,14 +313,14 @@ I turn customer signal into product decisions. Then I build the thing.</div>
 
 document.documentElement.classList.add('has-js');
 const P={
- "agent-toolkit":{url:"https://github.com/Bjepp77/agent-jepp-toolkit",what:"A multi-agent operating system for Claude Code: a manager, department leads and workers, with hooks that enforce the rules.",stack:"Python",live:false},
- "ends-of-the-earth":{url:"https://bjepp77.github.io/ends-of-the-earth/",src:"https://github.com/Bjepp77/ends-of-the-earth",what:"A daily geography game on Church history and temples. Pin the answer, score by distance.",stack:"HTML, GitHub Pages",live:true},
- "swolequest":{url:"https://bjepp77.github.io/swolequest/",src:"https://github.com/Bjepp77/swolequest",what:"A nostalgic, retro workout ecosystem in 16-bit style.",stack:"HTML, GitHub Pages",live:true},
- "book":{url:"/book",src:"https://github.com/Bjepp77/Bjepp77.github.io",what:"A Calendly-style scheduler built from scratch: free/busy, slot holds, Meet links, invites.",stack:"JavaScript, serverless",live:true},
- "trade-scout":{url:"https://github.com/Bjepp77/trade-scout",what:"A local dynasty fantasy football trade evaluator. Prices every trade against several value sources and returns a consensus verdict.",stack:"Python",live:false},
- "walnut":{url:"https://github.com/Bjepp77/walnut",what:"Private, local voice dictation and narration for macOS. Whisper on your own silicon: no cloud, no keys, no subscription.",stack:"Python",live:false},
- "thrift-scout":{url:"https://github.com/Bjepp77/thrift-scout-public",what:"An autonomous sourcing agent for resale inventory.",stack:"Python",live:false},
- "aifoundry":{url:"https://aifoundry.byu.edu",what:"The AI Foundry studio site. Played a major role in designing and building it, in TypeScript on Supabase and Vercel.",stack:"TypeScript, Supabase, Vercel",live:true}
+ "agent-toolkit":{url:"https://github.com/Bjepp77/agent-jepp-toolkit",what:"A multi-agent operating system for Claude Code: a manager, department leads and workers, with hooks that enforce the rules.",stack:"Python",live:false,why:"I wanted my agents to move fast without ever pushing work I didn&#39;t approve or committing a secret."},
+ "ends-of-the-earth":{url:"https://bjepp77.github.io/ends-of-the-earth/",src:"https://github.com/Bjepp77/ends-of-the-earth",what:"A daily geography game on Church history and temples. Pin the answer, score by distance.",stack:"HTML, GitHub Pages",live:true,why:"Most of us know the first answer, so I wanted a game that rewards the one you only reach by remembering a mission call or a map in the back of your scriptures."},
+ "swolequest":{url:"https://bjepp77.github.io/swolequest/",src:"https://github.com/Bjepp77/swolequest",what:"A nostalgic, retro workout ecosystem in 16-bit style.",stack:"HTML, GitHub Pages",live:true,why:"Most workout trackers feel like tax software with dumbbells, and my bet is that people keep training when they can see their progress."},
+ "book":{url:"/book",src:"https://github.com/Bjepp77/Bjepp77.github.io",what:"A Calendly-style scheduler built from scratch: free/busy, slot holds, Meet links, invites.",stack:"JavaScript, serverless",live:true,why:"I wanted to find out if I could build the scheduler I&#39;d otherwise pay for, start to finish."},
+ "trade-scout":{url:"https://github.com/Bjepp77/trade-scout",what:"A local dynasty fantasy football trade evaluator. Prices every trade against several value sources and returns a consensus verdict.",stack:"Python",live:false,why:"Every trade calculator gives you one confident number and they often disagree, so I wanted to see all four side by side before I trade."},
+ "walnut":{url:"https://github.com/Bjepp77/walnut",what:"Private, local voice dictation and narration for macOS. Whisper on your own silicon: no cloud, no keys, no subscription.",stack:"Python",live:false,why:"The good dictation tools all send your voice to someone else&#39;s server, so I built one that runs on my own Mac."},
+ "thrift-scout":{url:"https://github.com/Bjepp77/thrift-scout-public",what:"An autonomous sourcing agent for resale inventory.",stack:"Python",live:false,why:"I wanted the searching done for me, so all I do each morning is read a short report and bid or move on."},
+ "aifoundry":{url:"https://aifoundry.byu.edu",what:"The AI Foundry studio site. Played a major role in designing and building it, in TypeScript on Supabase and Vercel.",stack:"TypeScript, Supabase, Vercel",live:true,why:"The AI Foundry needed a real home online, and as its Director of Product I played a major role in the designing and building process."}
 };
 const L=(href,t)=>`<a href="${href}" target="_blank" rel="noopener">${t||href.replace(/^https?:\/\//,'')}</a>`;
 const C={
@@ -344,7 +344,7 @@ I turn customer signal into product decisions. Then I build the thing.`,
 ${p.what}
 <span class="dim">stack</span>  ${p.stack}
 <span class="dim">${p.live?'live ':'repo '}</span>  ${L(p.url)}${p.src?`\n<span class="dim">repo </span>  ${L(p.src)}`:''}
-<span class="dim">why  </span>  <span class="ph">one line from Brandon</span>`},
+<span class="dim">why  </span>  ${p.why}`},
  now:()=>`<span class="h">Now</span>
   Director of Product          AI Foundry @ BYU
   Portfolio Strategy Intern    Breckenridge Pharmaceutical
